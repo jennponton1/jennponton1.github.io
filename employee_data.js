@@ -1,4 +1,4 @@
-//window.document.location.href = 'employee_data.php';
+window.document.location.href = 'employee_data.php';
 //var vendid = $("#vendid").val();
 //        var invcnbr = $("#invnbr").val();
 //        $.ajax({
@@ -16,9 +16,9 @@
 //                }
 //            }
 //        });
-$.ajax({
-    type: "POST",
-    url: "?do=main"
-});
+//$.ajax({
+//    type: "POST",
+//    url: "?do=main"
+//});
 
 

@@ -11,7 +11,7 @@ function main() {
     $tpl->display(dirname(__FILE__) . "employee_data.html");
 }
 
-$htwApp->addControllerElement('null', 'main');
+$htwApp->addControllerElement('main', 'main');
 $htwApp->dispatch();
 
 

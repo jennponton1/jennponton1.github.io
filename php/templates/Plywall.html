@@ -1,0 +1,229 @@
+  <SCRIPT LANGUAGE="JavaScript" SRC="/calendar/calendar.js">
+  </SCRIPT>
+  
+  <form method=POST name=fmPlywall id=fmPlywall {$form.attributes}>{$form.hidden}
+ 
+  <TABLE>
+      <TR>
+         <TD></TD>
+     </TR> 
+  </TABLE>
+  <TABLE style = "width: 100%">
+     <TR>
+        <TD style = "width: 17%;"><B>{$form.OrdNum.label}</B></TD>
+        <TD style = "width: 30%;">{$form.OrdNum.html}</TD>        
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.OrdDate.label}</B></TD>
+        {if $edit == "0" && $group != "'IN_ShipProj'"} 
+            <TD style = "width: 30%;">{$form.OrdDate.html}&nbsp;&nbsp;<A HREF='javascript:void(0)'
+                ONCLICK='call_calendar(document.fmPlywall.OrdDate);'><IMG
+                SRC='/calendar/img/cal.gif' WIDTH='16' HEIGHT='16' BORDER='0' ALIGN='bottom'></A>
+                <FONT SIZE='-2'>&nbsp;Click for a calendar  (mm/dd/yyyy)</FONT></TD>
+        {else} 
+            <TD style = "width: 30%;">{$form.OrdDate.html}</TD>      
+        {/if}       
+     </TR> 
+     <TR>         
+        <TD style = "width: 17%;"><B>{$form.PoNum.label}</B></TD>
+        <TD style = "width: 30%;">{$form.PoNum.html}</TD>
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.DueDate.label}</B></TD>
+        {if $edit == "0" && $group != "'IN_ShipProj'"}
+            <TD style = "width: 30%;">{$form.DueDate.html}&nbsp;&nbsp;<A HREF='javascript:void(0)'
+                ONCLICK='call_calendar(document.fmPlywall.DueDate);'><IMG
+                SRC='/calendar/img/cal.gif' WIDTH='16' HEIGHT='16' BORDER='0' ALIGN='bottom'></A>
+                <FONT SIZE='-2'>&nbsp;Click for a calendar  (mm/dd/yyyy)</FONT></TD> 
+        {else} 
+            <TD style = "width: 30%;">{$form.DueDate.html}</TD>      
+        {/if}                       
+     </TR> 
+     <TR>          
+        <TD style = "width: 17%;"><B>{$form.RepName.label}</B></TD>
+        <TD style = "width: 30%;">{$form.RepName.html}</TD>
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.InvDate.label}</B></TD>
+        {if $edit == "0" && $group != "'IN_ShipProj'"}       
+            <TD style = "width: 30%;">{$form.InvDate.html}&nbsp;&nbsp;<A HREF='javascript:void(0)'
+                ONCLICK='call_calendar(document.fmPlywall.InvDate);'><IMG
+                SRC='/calendar/img/cal.gif' WIDTH='16' HEIGHT='16' BORDER='0' ALIGN='bottom'></A>
+                <FONT SIZE='-2'>&nbsp;Click for a calendar  (mm/dd/yyyy)</FONT></TD> 
+        {else} 
+            <TD style = "width: 30%;">{$form.InvDate.html}</TD>      
+        {/if}                             
+     </TR> 
+     <TR>          
+        <TD style = "width: 17%;"><B>{$form.CurStat.label}</B></TD>
+        <TD style = "width: 30%;">{$form.CurStat.html}</TD>
+        <TD style = "width: 6%;"></TD>
+        <TD style = "color: blue; width: 17%;"><B>{$form.RdyDate.label}</B></TD>
+        {if ($edit == "0" && $group == "'IN_ShipProj'") || ($edit == "0" && $group == "'IN_IT'")}
+            <TD style = "width: 30%;">{$form.RdyDate.html}&nbsp;&nbsp;<A HREF='javascript:void(0)'
+                ONCLICK='call_calendar(document.fmPlywall.RdyDate);'><IMG
+                SRC='/calendar/img/cal.gif' WIDTH='16' HEIGHT='16' BORDER='0' ALIGN='bottom'></A>
+                <FONT SIZE='-2'>&nbsp;Click for a calendar  (mm/dd/yyyy)</FONT></TD>
+        {else} 
+            <TD style = "width: 30%;">{$form.RdyDate.html}</TD>      
+        {/if}     
+     </TR>      
+     <TR>          
+        <TD style = "width: 17%;"><B></B></TD>
+        <TD style = "width: 30%;"></TD>
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.ShipDate.label}</B></TD>
+        {if $edit == "0" && $group != "'IN_ShipProj'"}             
+            <TD style = "width: 30%;">{$form.ShipDate.html}&nbsp;&nbsp;<A HREF='javascript:void(0)'
+                ONCLICK='call_calendar(document.fmPlywall.ShipDate);'><IMG
+                SRC='/calendar/img/cal.gif' WIDTH='16' HEIGHT='16' BORDER='0' ALIGN='bottom'></A>
+                <FONT SIZE='-2'>&nbsp;Click for a calendar  (mm/dd/yyyy)</FONT></TD> 
+        {else} 
+            <TD style = "width: 30%;">{$form.ShipDate.html}</TD>      
+        {/if}                             
+     </TR>            
+  </TABLE>     
+     
+  <TABLE style = "width: 100%">
+      <TR>
+         <hr>
+     </TR> 
+  </TABLE> 
+ 
+  <TABLE style = "width: 100%"> 
+     <TR>         
+        <TD style = "width: 17%;"><B>{$form.CustName.label}</B></TD>
+        <TD style = "width: 30%;">{$form.CustName.html}</TD>
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.Phone.label}</B></TD>
+        <TD style = "width: 30%;">{$form.Phone.html}</TD> 
+     </TR> 
+     <TR>          
+        <TD style = "width: 17%;"><B>{$form.Company.label}</B></TD>
+        <TD style = "width: 30%;">{$form.Company.html}</TD>
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.Fax.label}</B></TD>
+        <TD style = "width: 30%;">{$form.Fax.html}</TD> 
+     </TR> 
+     <TR>   
+        <TD style = "width: 17%;"><B>{$form.ShipAddr1.label}</B></TD>
+        <TD style = "width: 30%;">{$form.ShipAddr1.html}</TD>
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.BillAddr1.label}</B></TD>
+        <TD style = "width: 30%;">{$form.BillAddr1.html}</TD>        
+     </TR> 
+     <TR> 
+        <TD style = "width: 17%;"><B>{$form.ShipAddr2.label}</B></TD>
+        <TD style = "width: 30%;">{$form.ShipAddr2.html}</TD> 
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.BillAddr2.label}</B></TD>
+        <TD style = "width: 30%;">{$form.BillAddr2.html}</TD> 
+     </TR>   
+     <TR> 
+        <TD style = "width: 17%;"><B>{$form.ShipAddr3.label}</B></TD>
+        <TD style = "width: 30%;">{$form.ShipAddr3.html}</TD> 
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.BillAddr3.label}</B></TD>
+        <TD style = "width: 30%;">{$form.BillAddr3.html}</TD> 
+     </TR>  
+     <TR>    
+        <TD style = "width: 17%;"><B>{$form.ShipCity.label}</B></TD>
+        <TD style = "width: 30%;">{$form.ShipCity.html}</TD>
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.BillCity.label}</B></TD>
+        <TD style = "width: 30%;">{$form.BillCity.html}</TD>
+     </TR>  
+     <TR>   
+        <TD style = "width: 17%;"><B>{$form.ShipState.label}</B></TD>
+        <TD style = "width: 30%;">{$form.ShipState.html}</TD>
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.BillState.label}</B></TD>
+        <TD style = "width: 30%;">{$form.BillState.html}</TD>  
+     </TR>  
+     <TR>  
+        <TD style = "width: 17%;"><B>{$form.ShipZip.label}</B></TD>
+        <TD style = "width: 30%;">{$form.ShipZip.html}</TD> 
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.BillZip.label}</B></TD>
+        <TD style = "width: 30%;">{$form.BillZip.html}</TD>  
+     </TR>
+  </TABLE>     
+  <TABLE style = "width: 100%">
+      <TR>
+        <TD style = "width: 17%;"><B>{$form.SlsComnt.label}</B></TD>
+        <TD style = "width: 83%;">{$form.SlsComnt.html}</TD> 
+     </TR> 
+  </TABLE>     
+  <TABLE style = "width: 100%">     
+     <TR>
+        <TD style = "width: 17%;"><B>{$form.Mileage.label}</B></TD>
+        <TD style = "width: 30%;">{$form.Mileage.html}</TD>
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.Material.label}</B></TD>
+        <TD style = "width: 30%;">{$form.Material.html}</TD>          
+     </TR>
+     <TR>
+        <TD style = "width: 17%;"><B>{$form.Rate.label}</B></TD>
+        <TD style = "width: 30%;">{$form.Rate.html}</TD> 
+        <TD style = "width: 6%;"></TD> 
+        <TD style = "width: 17%;"><B>{$form.Freight.label}</B></TD>
+        <TD style = "width: 30%;">{$form.Freight.html}</TD>       
+     </TR>     
+     <TR>
+        <TD style = "width: 17%;"><B>{$form.Truck.label}</B></TD>
+        <TD style = "width: 30%;">{$form.Truck.html}</TD> 
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.Order.label}</B></TD>
+        <TD style = "width: 30%;">{$form.Order.html}</TD>            
+     </TR>
+	</TABLE>
+  <TABLE style = "width: 100%">
+      <TR>
+         <hr>
+     </TR> 
+  </TABLE>	
+  <TABLE style = "width: 100%">
+      <TR>
+        <TD style = "color: blue; width: 17%;"><B>{$form.ProdComnt.label}</B></TD>
+        <TD style = "width: 83%;">{$form.ProdComnt.html}</TD> 
+     </TR> 
+  </TABLE>   
+  <TABLE style = "width: 100%">
+     <TR>
+        <TD style = "color: blue; width: 17%;"><B>{$form.Treat.label}</B></TD>
+        <TD style = "width: 30%;">{$form.Treat.html}</TD> 
+        <TD style = "width: 6%;"></TD>
+        <TD style = "color: blue; width: 17%;"><B>{$form.LStat.label}</B></TD>
+        <TD style = "width: 30%;">{$form.LStat.html}</TD>            
+     </TR>
+     <TR>
+        <TD style = "color: blue; width: 17%;"><B>{$form.PStat.label}</B></TD>
+        <TD style = "width: 30%;">{$form.PStat.html}</TD> 
+        <TD style = "width: 6%;"></TD>
+        <TD style = "color: blue; width: 17%;"><B>{$form.PComp.label}</B></TD>
+        <TD style = "width: 30%;">{$form.PComp.html}</TD>            
+     </TR>     
+     <TR> 
+        <TD style = "color: blue; width: 17%;"><B>{$form.TStat.label}</B></TD>
+        <TD style = "width: 30%;">{$form.TStat.html}</TD> 
+        <TD style = "width: 6%;"></TD>
+        <TD style = "width: 17%;"><B>{$form.OrdStat.label}</B></TD>
+        <TD style = "width: 30%;">{$form.OrdStat.html}</TD>   
+	   </TR>       
+	</TABLE>
+	
+	<TABLE>
+	   <TR> 
+	      <hr>
+        <TD><br></TD>
+	   </TR>
+     <TR> 
+	      <TD>{$form.run.html}</TD>
+	      <TD>{$form.cancel.html}</TD>
+	      <TD>&nbsp;&nbsp;</TD>
+	      <TD>&nbsp;&nbsp;</TD>
+	      <TD>{$form.submit.html}</TD>
+	      <TD style = "color: red;"><B>&nbsp;&nbsp;&nbsp;&nbsp;{$form.MSG.html}</B></TD>
+	   </TR>	
+	</TABLE>
+              
+  </form>
+        
+   

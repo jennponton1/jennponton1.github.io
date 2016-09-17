@@ -1,0 +1,145 @@
+<?php
+//**************************************************************************************
+//  Class:      Addressing4.class
+//  PHP ADDRESSING CLASS for PHP4.  HAS NOT BEEN TESTED ON PHP4.
+//
+//  Purpose:    To return address information (salesorder, vendor, etc)
+//  Uses:       
+//  Returns:    Addresses
+//
+//  OK To Add Functions as Needed to this Class
+//
+//  USAGE:  to pull address for open salesorder:
+//    $address = new AddressObj;
+//    $address->pullOpenSOShipTo($ordnbr);
+//  
+//  to pull address for closed salesorder:
+//      $address = new AddressObj; 
+//      $address->pullClosedSOShipTo($ordnbr);  
+//***************************************************************************************}
+class AddressObj {
+  var $addr1;
+  var $addr2;
+  var $addr3;
+  var $city;
+  var $state;
+  var $zip;
+  var $ds;  //dataset with saleorder addressing info
+  
+  function AddressObj() 
+  { 
+    $this->addr1 = '';
+    $this->addr2 = '';
+    $this->addr3 = '';
+    $this->city = '';
+    $this->state = '';
+    $this->zip = '';
+  }  //end constructor
+
+function setLiveShipTo($ordset)
+{     
+  $ShipVia = odbc_result($ordset, "shipvia");
+  $shipaddrid = odbc_result($ordset, "shipaddressid");
+
+  if ((substr($ShipVia, 0,8) == 'CUSTOMER') || ($ShipVia == 'CPU'))
+  { $this->addr1 = 'CUSTOMER';
+    $this->addr2 = odbc_result($ordset, "shipaddr1"); 
+    $this->addr3 = odbc_result($ordset, "shipaddr2");
+    $this->city = odbc_result($ordset, "shipcity");
+    $this->state = odbc_result($ordset, "shipstate");
+    $this->zip = odbc_result($ordset, "shipzip");
+  }  //end if
+  else if (strlen($shipaddrid) < 1)
+  {
+    $fname = odbc_result($ordset, "shipfirstname");
+    $lname = odbc_result($ordset, "shiplastname");
+    $this->addr1 = trim($fname.' '.$lname);
+    $this->addr2 = odbc_result($ordset, "shipaddr1");
+    $this->addr3 = odbc_result($ordset, "shipaddr2");
+    $this->city = odbc_result($ordset, "shipcity");
+    $this->state = odbc_result($ordset, "shipstate");
+    $this->zip = odbc_result($ordset, "shipzip");
+  }  //end else
+  else
+  {
+    $fname = odbc_result($ordset, "stfirst");
+    $lname = odbc_result($ordset, "stlast");
+    $this->addr1 = trim($fname.' '.$lname);
+    $this->addr2 = odbc_result($ordset, "staddr1");
+    $this->addr3 = odbc_result($ordset, "staddr2");
+    $this->city = odbc_result($ordset, "stcity");
+    $this->state = odbc_result($ordset, "ststate");
+    $this->zip = odbc_result($ordset, "stzip");
+  } //end else
+  
+}  //end function SetAddress
+
+function setDwhShipTo($ds)
+{  
+   $fname = odbc_result($ds, 'shipfirstname');
+   $lname = odbc_result($ds, 'shiplastname');
+   $this->addr1 = trim($fname.' '.$lname);
+   $this->addr2 = odbc_result($ds, 'shipaddr1');
+   $this->addr3 = odbc_result($ds, 'shipaddr2');
+   $this->city = odbc_result($ds, 'shipcity');
+   $this->state = odbc_result($ds, 'shipstate');
+   $this->zip = odbc_result($ds, 'shipzip');        
+}  //end function SetDwhAddress
+
+function setVendorAddrs($ds)
+{  $this->addr1 = 'Vendor Address Not Yet Available';
+   return $this;
+
+}  //end function setVendorAddrs
+
+function pullOpenSOShipTo($ordnbr)
+{
+  $conn = odbc_connect('adohtwsol', '', '');
+    
+  $sql = "Select siteid, h.ordnbr, h.ordtype, h.bocntr, h.terms, h.fob, h.shipdate, h.shipvia, h.custordnbr,
+          h.shipaddressid, h.status, h.shipfirstname, h.shiplastname, h.shipaddr1, h.shipaddr2, h.shipcity,
+          h.shipstate, h.shipzip, h.custid,
+          u.lastname, u.firstname, u.addrid, u.user3 as user,
+          a.addr1, a.addr2, a.city, a.state, a.zip,
+          b.firstname as STFirst, b.lastname as STLast, b.addr1 as STAddr1, b.addr2 as STaddr2, b.city as STCity, b.state as STState, b.zip as STZip
+          From salesord h, sodet d, customer u, address a, address b
+          where h.ordnbr='$ordnbr'
+          and h.openso='Y' and
+          h.ordnbr=d.ordnbr and
+          h.ordtype=d.ordtype and
+          h.bocntr=d.bocntr and
+          h.custid=u.custid and
+          u.addrid=a.addrid and
+          h.shipaddressid=b.addrid(+)";  
+          
+  $ds = odbc_exec($conn, $sql);
+  
+  $this->ds = $ds;  //save the dataset--no need to repull
+  $this->setLiveShipTo($ds);     
+  return $this;   
+    
+}  //end function PullAddress
+
+function pullClosedSOShipTo($ordnbr)
+{  //pull shipto info from dwh
+   $myconn = odbc_connect("inet dwh my", "root", "");
+   
+   $sql = "select distinct shipaddr1, shipaddr2, shipcity, shiplastname, shipfirstname, 	
+           shipstate, shipzip from slshdr h, slsaddr d where 
+           h.ordnbr = d.ordnbr and  
+           h.ordtype = d.ordtype and  
+           h.bocntr = d.bocntr and  
+           h.ordnbr = '$ordnbr' ";
+   
+   $ds = odbc_exec($myconn, $sql);
+   
+   $this->ds = $ds; 
+   $this->setDwhShipTo($ds);
+   return $this;
+}  //end function pullClosedSOShipTo
+
+
+}  //end class AddressObj
+
+
+?>

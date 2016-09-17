@@ -1,0 +1,65 @@
+<form method=POST name=fmMaintDisp6 id=fmMaintDisp6 {$form.attributes}> {$form.hidden}
+
+  <TABLE>  
+        <TR>
+           <TD><b>{$form.Hardware.label}</b></TD>
+           <TD>{$form.Hardware.html}</TD>
+        </TR>
+        <TR>
+           <TD><b>{$form.Hours.label}</b></TD>
+           <TD>{$form.Hours.html}</TD>
+        </TR>
+        <TR>
+           <TD><br></TD>
+        </TR>     
+  </TABLE>
+
+  <TABLE>  
+        <TR>
+           <TD></TD>
+           <TD>{$form.htTable.label}</TD>
+           <TD></TD>
+        </TR>
+  </TABLE>
+  
+  <TABLE> 
+        <TR> 
+           <TD style = "width: 10%;"><b>{$form.Notes.label}</b></TD>
+           <TD style = "width: 71%;">{$form.Notes.html}</TD>
+           <TD style = "width: 19%;">&nbsp;</TD>
+        </TR> 
+        <TR> 
+           <TD><br></TD>
+	      </TR>
+  </TABLE> 
+ 
+  <TABLE> 
+        <TR>
+           <TD><b>{$form.MaintPerson.label}</b></TD>
+           <TD style = "width: 50%;">{$form.MaintPerson.html}</TD>
+           <TD>{$form.MSG1.html}</TD>
+        </TR> 
+        <TR>
+           <TD><b>{$form.MaintForeM.label}</b></TD>
+           <TD style = "width: 50%;">{$form.MaintForeM.html}</TD>
+           <TD>{$form.MSG2.html}</TD>
+        </TR> 
+        <TR>
+           <TD><b>{$form.MaintOpM.label}</b></TD>
+           <TD style = "width: 50%;">{$form.MaintOpM.html}</TD>
+           <TD>{$form.MSG3.html}</TD>
+        </TR>     
+  </TABLE>
+
+  <TABLE> 
+        <TR> 
+           <TD><br></TD>
+	      </TR>
+        <TR> 
+           <TD>{$form.run.html}</TD>
+           <TD>{$form.cancel.html}</TD>
+           <TD style = "color: red;"><b>&nbsp;&nbsp;{$form.EMSG.html}</b></TD>
+	      </TR>
+	</TABLE>
+	
+</form>

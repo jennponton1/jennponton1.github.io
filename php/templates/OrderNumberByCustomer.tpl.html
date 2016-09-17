@@ -1,0 +1,32 @@
+<HTML><HEAD><TITLE>Order Number Lookup</TITLE>
+{literal}
+  <STYLE TYPE="text/css">
+   .error {COLOR:red;
+           FONT-WEIGHT:bold;
+   }
+      .area {
+    height: 400px;
+    width: 800px;
+    overflow: scroll;
+    top: 200px;
+    left: 115px;
+    position: absolute;
+
+    }
+</STYLE>
+
+<SCRIPT>
+function setHidden(vText){
+ var parWin = window.opener;
+ parWin.document.getElementById("OrdNbr").value = vText;
+ window.close();
+}
+</SCRIPT>
+{/literal}
+</HEAD>
+
+<P>Select the Order Number you want for 20BLWV from below:</P>
+<form {$form.attributes}>
+{$form.hidden}
+{$form.htTable.label}
+</form>

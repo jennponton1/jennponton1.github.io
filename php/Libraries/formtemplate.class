@@ -1,0 +1,83 @@
+<?php
+
+// Template to make  a form Table
+//  Constructor may be passed with no arguments, similar to tabletemplate
+//   or will take  paramaters as follows:
+//       array with Text for Entry in Form Table (descriptions)
+//       array with Text for input names (names) which are also used as ID's
+//       array with Text for input types (types) (i.e. text, hidden, textarea or select)
+//           ALLOWABLE TYPES:
+//            any input type
+//            select (will make a select box)
+//            number (will make a text box that is right aligned)
+//            readonly (will make a text box that is read only)
+//       array with Text for input default values (values). IF select was type for item, then
+//          the value passed is assumed to be an array of the select options
+
+//  Method getForm will return a string with the form html.  getForm may be used
+//    with no arguments where args were passed with constructor or may be passed
+//    in same order as expected by constructor
+
+class FormTemplate{
+  var $descriptions=array();
+  var $types=array();
+  var $names=array();
+  var $values=array();
+  
+  function FormTemplate($vdescrs = NULL,$vnames= NULL,$vtypes= NULL,$vvalues= NULL){
+    $this->descriptions = $vdescrs;
+    $this->types = $vtypes;
+    $this->names = $vnames;
+    $this->values = $vvalues;
+  }
+  
+  function getForm($vdescrs = NULL,$vnames= NULL,$vtypes= NULL,$vvalues= NULL){
+    if ($vdescrs != NULL) {
+      $this->descriptions = $vdescrs;
+      $this->types = $vtypes;
+      $this->names = $vnames;
+      $this->values = $vvalues;
+    }
+    $form = "<form method=POST>\n";
+    $form .= "<table>\n";
+    $nbrItems = count($this->descriptions);
+    for ($i=0;$i<$nbrItems;$i++){
+      $form .= "<tr>";
+      $form .= "<td>".$this->descriptions[$i]."</td>";
+      $form .= "<td>";
+      if (strtolower($this->types[$i]) != "select") {
+        $form .= "<input ".
+                 " type=".$this->types[$i].
+                 " name=".$this->names[$i].
+                 " id=".$this->names[$i].
+                 " value=".$this->values[$i];
+        if (strtolower($this->types[$i]) == "readonly") 
+          $form.=" READONLY ";
+        if (strtolower($this->types[$i]) == "number") 
+          $form.=" style='text-align:right;' ";
+        $form .=">";
+      } // Standard INPUT
+      else 
+      if (strtolower($this->types[$i]) == "select") {
+        $form.= "<select ".
+                 " name=".$this->names[$i].
+                 " id=".$this->names[$i].
+                 ">\n";
+        foreach ($this->values[$i] as $ndx=>$val) {
+          $form.="<option value=$val>$val</option>\n";
+        }
+        $form.= "</select>\n";
+      } // SELECT Stmt
+      echo "</td>";
+      $form .= "</tr>\n";
+    }
+    $form .= "<tr><td><input type=submit></td></tr>\n";
+    $form .= "</table>\n";
+    $form .= "</form>\n";
+    $form .= "<a href=".$_SERVER["PHP_SELF"].">Start over</a><br>\n";
+    return ($form);
+  }
+}
+
+
+?>

@@ -1,0 +1,62 @@
+{literal}
+<STYLE TYPE="text/css">
+   .error {COLOR:red;
+           FONT-WEIGHT:bold;
+   }
+</STYLE>
+{/literal}
+<H3>Sales Order details for {$InvtID} on order {$OrdNbr} </H3>
+<TABLE CELLPADDING='3'>
+	<TR><TD><B>Open Line:  </B></TD><TD>{$OpenSO}</TD><TD><B>WhseLoc:  </B></TD><TD>{$WhseLoc}</TD>
+	</TR>
+	<TR><TD><B>Site:  </B></TD><TD>{$Site}</TD><TD><B>Customer:  </B></TD><TD>{$CustID}</TD>
+	</TR>
+	<TR><TD><B>Unit:  </B></TD><TD>{$UnitDesc}</TD><TD><B>Desc:  </B></TD><TD>{$Descr}</TD>
+	</TR>
+</TABLE>
+<P><B>Pricing Breakdown: 
+</P>
+<BR>
+<TABLE width='85%' align='center'>
+	<TR>
+		<TH style='border-bottom: thin black solid'>BO
+		</TH>
+		<TH style='border-bottom: thin black solid'>Type
+		</TH>
+		<TH style='border-bottom: thin black solid'>Price
+		</TH>
+		<TH style='border-bottom: thin black solid'>Treating
+		</TH>
+		<TH style='border-bottom: thin black solid'>Wood
+		</TH>
+		<TH style='border-bottom: thin black solid'>Freight
+		</TH>
+		<TH style='border-bottom: thin black solid'>Misc
+		</TH>
+		<TH style='border-bottom: thin black solid'>Pcs Ord
+		</TH>
+		<TH style='border-bottom: thin black solid'>Ship
+		</TH>
+		<TH style='border-bottom: thin black solid'>Pcs Open
+		</TH>
+		<TH style='border-bottom: thin black solid'>BF Ord
+		</TH>
+	</TR>
+{foreach from=$Details item=price }
+	<TR><TD>{$price.BOCount}</TD><TD>{$price.OrdType}</TD>
+		<TD align='right'>{$price.SalesPrice}</TD>
+		<TD align='right'>{$price.Treating}</TD>
+		<TD align='right'>{$price.WoodPrice}</TD>
+		<TD align='right'>{$price.Freight}</TD>
+		<TD align='right'>{$price.Misc}</TD>
+		<TD align='right'>{$price.PcsOrdered}</TD>
+		<TD align='right'>{$price.PcsShipped}</TD>
+		<TD align='right'>{$price.PcsOpen}</TD>
+		<TD align='right'>{$price.BoardFeet}</TD>
+	</TR>
+{/foreach}
+</TABLE>
+<P>
+	<CENTER>
+		<A HREF='javascript:close()'>Close Window</A>
+</P>

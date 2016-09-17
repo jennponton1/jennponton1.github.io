@@ -1,0 +1,35 @@
+	<SCRIPT LANGUAGE="JavaScript" SRC="/calendar/calendar.js">
+  </SCRIPT>
+  <form method=POST name=fmMain id=fmMain {$form.attributes}>
+  {$form.hidden}
+  
+  <TABLE>  
+     <TR>
+        <TD><B><h3>{$form.RptName.label}</B></TD>
+     </TR>
+  </TABLE>
+        
+  <TABLE> 
+        <TD><B>{$form.selYear.label}</B></TD>     
+        <TD>
+          {$form.selYear.html}&nbsp;&nbsp;
+  			</TD>
+     </TR>
+     <TR>
+        <TD>
+        </TD>
+        <TD>
+        &nbsp;
+        </TD>
+     </TR>
+	</TABLE>
+	<TABLE>
+	   <TR>
+        <TD><br>{$form.run.html}</TD>
+        <TD><br>{$form.exit.html}</TD>
+  	 </TR>
+	</TABLE>
+	   <TR>
+        <TD><br>{$form.message.label}</TD>
+  	 </TR>
+  </form>

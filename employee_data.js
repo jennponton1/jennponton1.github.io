@@ -1,3 +1,3 @@
-window.document.location.href = 'employee_data.html';
+window.document.location.href = 'employee_data.php';
 
 

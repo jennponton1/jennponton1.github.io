@@ -1,0 +1,35 @@
+body {
+    background-color: #eeeeee;
+    font-family: sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 7px;
+}
+.tbl_vend  {
+    xdisplay: table-cell;
+    width: 200px;
+    height: 18px;
+    overflow: hidden;
+}
+.dtl_lbl {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+}
+.dtl_inp {
+    width: 100px;
+    text-align: left;
+}
+.dtl_inp2 {
+    width: 400px;
+    text-align: left;
+}
+.dtl_inp3 {
+    width: 300px;
+    text-align: left;
+}
+#table_container {
+
+    background-color: #CCCCCC;
+    border: thin solid black;
+}

@@ -1,8 +1,18 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+include 'htwapp.class.php';
+require_once 'htframework.inc.php';
+
+function main() {
+    global $htwApp;
+    $tpl = $htwApp->createSmarty();
+    $empfname = 'Jennifer';
+    $tpl->assign('empfname', $empfname);
+    $tpl->display(dirname(__FILE__) . "employee_data.html");
+}
+
+$htwApp->addControllerElement('null', 'main');
+$htwApp->dispatch();
+
+
 

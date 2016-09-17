@@ -1,0 +1,124 @@
+{literal}
+<STYLE TYPE="text/css">
+   .error {COLOR:red;
+           FONT-WEIGHT:bold;
+   }
+      .area {
+    height: 400px;
+    width: 800px;
+    overflow: scroll;
+    top: 200px;
+    left: 115px;
+    position: absolute;
+
+    }
+</STYLE>
+<SCRIPT>
+  function GoBack()
+  {
+     vAppName = navigator.appName;
+     if (vAppName=="Microsoft Internet Explorer")
+     {history.go(-1);}  //end if
+     else
+     {window.back();}
+  }  //end function GoBack
+
+  function GetDetails(ordnbr, invtid)
+  {
+    var newWin = window.open("SOLookUp.php?do=getDetails&ordnbr="+ordnbr+"&invtid="+invtid,"NewWin","width=950,height=480,top=50, left=50, toolbar=no, resizable=yes");
+  }  //end function GetDetails
+
+  function GetShipments(ordnbr, invtid)
+  {
+    var newWin = window.open("SOLookUp.php?do=getShipments&ordnbr="+ordnbr+"&invtid="+invtid,"NewWin","width=950,height=480,top=50, left=50, toolbar=yes, resizable=yes");
+  } //end function GetShipments
+</script>
+{/literal}
+<form {$form.attributes}>
+{$form.hidden}
+{if $orderFound}
+<table width="75%">
+  <tbody>
+    <tr>
+      <td><b>Customer ID:  </b></td>
+      <td>{$CustId}</td>
+      <td><b>Order Nbr:  </b></td>
+      <td>{$OrdNbr}</td>
+      <td><b>Open:  </b></td>
+      <td>{$OpenSO}</td>
+    </tr>
+    <tr>
+      <td><b>Order Date:  </b></td>
+      <td>{$OrdDate}</td>
+      <td><b>FOB:  </b></td>
+      <td>{$FOB}</td>
+      <td><b>Slsperson:  </b></td>
+      <td>{$SlsPerId}</td>
+    </tr>
+    <tr>
+      <td><b>Cust Ord Nbr:  </b></td>
+      <td>{$CustOrdNbr}</td>
+      <td><b>Ship Via:  </b></td>
+      <td>{$ShipVia}</td>
+      <td><b>Terms</b></td>
+      <td>{$Terms}</td>
+    </tr>
+  </tbody>
+</table>
+<table width="75%">
+  <tbody>
+    <tr>
+      <th>Bill To:</th>
+      <th>Ship To:</th>
+    </tr>
+    <tr>
+      <td> {$BillAddr.0}</td>
+      <td> {$ShipAddr.0}</td>
+    </tr>
+
+    <tr>
+      <td>{$BillAddr.1}</td>
+      <td>{$ShipAddr.1}</td>
+    </tr>
+
+    <tr>
+      <td>{$BillAddr.2}</td>
+      <td>{$ShipAddr.2}</td>
+    </tr>
+
+    <tr>
+      <td>{$BillAddr.3}</td>
+      <td>{$ShipAddr.3}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<table align="center" width="95%">
+  <tbody>
+    <tr>
+      <td align="left" width="33%">
+        <a href="SOLookUp.php?OrdNbr={$OrdNbr}&amp;custid={$CustId}&amp;do=getPrevOrder">
+        Previous Order</a></td>
+      <td align="center" width="34%"><a href="SOLookUp.php?do=null">Lookup Another Order</a></td>
+
+      <td align="right" width="33%">
+        <a href="SOLookUp.php?OrdNbr={$OrdNbr}&amp;custid={$CustId}&amp;do=getNextOrder">
+        Next Order</a></td>
+    </tr>
+  </tbody>
+</table>
+
+{if $detailFound}
+	{$form.htTable.label}
+{else}
+<p></p><center><span class="error">ERROR ENCOUNTERED:  </span><b>There are no details in the system for this order!</b>
+<br><span class="error">*</span><b>Please Note:  </b>Old orders may have been purged from the system.</center>
+{/if}
+{else}
+<P><CENTER><SPAN CLASS='error'>ERROR ENCOUNTERED:  </SPAN><B>No orders found for customer order number {$OrdNbr}!</B>
+<BR>Please <a href='javascript:GoBack()'>Try Again</A></CENTER></body></html>
+{/if}
+</form>
+</body>
+</html>

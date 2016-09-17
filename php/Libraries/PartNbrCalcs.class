@@ -1,0 +1,132 @@
+<?php
+//**************************************************************************************
+//  Class:      PartNbrCalcs.class
+//  Purpose:    To calculate various frequently-used part-number items
+//  Uses:       
+//  Returns:    Calculations related to part numbers--without having to use all of the
+//              pricing components required in the InvcClass.class 
+//
+//  OK To Add Functions as Needed to this Class
+//
+//***************************************************************************************}
+class PartNbrObj {
+
+  public $invtid;      //part number
+  public $descr;       //description
+  public $pieces;      //nbr of pieces
+  public $bffac;       //board-foot factor
+  public $sffac;      //square-foot factor
+  public $cffac;      //cubic-foot factor
+  public $stkitem;    //true if stkiem in invntory file, ow false
+  public $bdft;       //board feet
+  public $sqft;       //square feet
+  public $bu;         //billing units
+  public $cuft;       //cubic feet;
+  public $cnvfact;    //conversion factor for bundles--may be diff than bndlsz
+  public $bndlsz;     //bundle size from htinconv
+  public $uom;        //unit of measure (EACH or BNDL)
+  public $qty;        //quantity
+  
+  function __construct() 
+  {
+    $this->invtid = '';
+    $this->descr  = '';
+    $this->pieces = 0;
+    $this->bffac = 0;
+    $this->sffac = 0;
+    $this->cffac = 0;
+    $this->stkitem = false;
+    $this->bdft = 0;
+    $this->sqft = 0;
+    $this->bu = 0;
+    $this->cuft = 0;
+    $this->bndlsz = 0;
+    $this->cnvfact = 0;
+    $this->uom = '';
+    $this->qty = 0;
+    
+  }  //end constructor
+  
+  
+private function SetFactors($invtid)
+{  
+   $this->invtid = $invtid;
+   $liveConn = odbc_connect('adohtwsol', '', '');
+   
+   $sql = "Select * from invntory i, htinconv v 
+           where i.invtid = v.invtid and 
+           invtid = '$invtid'";
+           
+   $dsFactors = odbc_exec($liveConn, $sql);
+   
+   if (odbc_fetch_row($dsFactors))
+   {
+    $this->descr = odbc_result($dsFactors, 'descr');
+    $this->bffac = odbc_result($dsFactors, 'bf');
+    $this->sffac = odbc_result($dsFactors, 'sf');
+    $this->cffac = odbc_result($dsFactors, 'cuft');
+    $this->bndlsz = odbc_result($dsFactors, 'bndl');
+    if (odbc_result($dsFactors, 'stkitem') == 'Y')
+      $this->stkitem = true;
+   }  //end while
+   
+}  //end function SetFactors
+
+function CalculateBU($invtid, $pieces)
+{ 
+  $bu = 0;
+  if ($this->bffac == 0)
+    $this->SetFactors($invtid);
+
+  $type = substr($invtid, 0, 1);
+  switch($type)
+    {
+      case "A":
+        $bu = $pieces * $this->bffac;
+        break;
+      case "B";
+        $bu = $pieces * $this->sffac;
+        break;
+      default:
+        $bu = $pieces;     
+    }  //end switch
+    
+    if (($type == 'A' or $type == 'B') && ($this->stkitem))
+      {  $bu = $bu/1000;
+         $bu = round($bu * 1000)/1000;
+      }  //end if
+      
+    $this->bu = $bu;
+    return $bu;
+    
+}  //end function CalculateBU
+
+
+function CalculateBF($invtid, $pieces)
+{ 
+  if ($this->invtid == '')
+    $this->invtid = $invtid;
+    
+  if ($this->bffac == 0)
+    $this->SetFactors($invtid);
+    
+  $bdft = 0; 
+  $type = substr($invtid, 0, 1);
+  switch ($type)
+    { 
+      case "B":
+        $bdft = $pieces * $this->sffac;
+        $bdft = $bdft * $this->bffac;
+        break;
+      default:
+        $bdft = $pieces * $this->bffac;  
+    }  //end switch
+    
+  $this->bdft = $bdft;
+  return $bdft;  
+}  //end function CalculateBF
+
+   
+}  //end PartNbr class
+
+?>

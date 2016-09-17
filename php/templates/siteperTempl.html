@@ -1,0 +1,21 @@
+	<SCRIPT LANGUAGE="JavaScript" SRC="/calendar/calendar.js">
+    </SCRIPT>
+
+     <form method=POST name=fmMain id=fmMain {$form.attributes}>
+     {$form.hidden}
+        <TABLE>  
+        <TR>
+        <TD><B>{$form.siteid.label}</B></TD>
+        <TD><B>{$form.siteid.html}</B></TD>
+        </TR>  
+        <TD><B>{$form.period.label}</B></TD>
+        <TD>{$form.period.html}<A HREF='javascript:void(0)'
+						 ONCLICK='call_calendar_monthly(document.fmMain.period);'><IMG
+						SRC='/calendar/img/cal.gif' WIDTH='16' HEIGHT='16' BORDER='0' ALIGN='bottom'></A>
+						<FONT SIZE='-2'>Click for a calendar</FONT><br>Use (YYYYMM) Format </TD></TD></TR>
+        
+	<TR>
+	<TD>{$form.run.html}</TD>
+	</TR>
+	</TABLE>
+        </form>

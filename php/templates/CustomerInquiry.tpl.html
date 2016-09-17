@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>
+      Hoover Treated Wood Products Customer Lookup
+    </title>
+{literal} 
+    <style type="text/css">
+        .error{	COLOR:red;           
+								FONT-WEIGHT:bold;   
+							}
+				.area{	height:400px;    
+								width:800px;    
+								overflow:scroll;    
+								top:200px;    
+								left:115px;    
+								position:absolute;    
+							}
+    </style>
+  </head>
+  <body>
+<script language='javascript' type="text/javascript">
+  function sethidden(vText)
+	{ 
+		var parWin = window.opener; 
+		parWin.document.getElementById("custid").value = vText; 
+		window.close();
+	}
+</script>
+{/literal}
+    <p>
+      select the customer you want from below:
+    </p>
+    <div style= 'overflow: scroll; position: absolute; top: 50; left: 0; width: 100%; height: 85%'>
+    {php} global $customers; $this->assign('customers', $customers); {/php}
+      <table width='100%' style='text-decoration: none; font-family: sans-serif; font-size: 8pt'>
+			{foreach from=$customers key=k item=v}
+        <tr>
+          <td>
+            <a href="javascript:sethidden('{$k}');">{$k}</a>
+          </td>
+          <td>
+            {$v}
+          </td>
+        </tr>
+     	{/foreach}
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<script type="text/javascript">
+{literal}
+ document.getElementById('newTag').focus();
+ function doCustLookup(){
+   var newWin = window.open("/lookups/CustLup.php","NewWin","width=640,top=50, left=50, height=480,toolbar=no, resizable=yes");
+ }
+ function doInvtidLookup(){
+   var newWin = window.open("/lookups/InvtidLup.php","NewWin","width=640,top=50, left=50, height=480,toolbar=no, resizable=yes");
+ }
+{/literal}
+</script>
+
+<form method=POST name=fmPITagPageDisp id=fmPITagPageDisp {$form.attributes}>{$form.hidden}
+  <TABLE style = "width: 100%">
+      <TR>
+         <br>
+         <TD style = "font-size: 24; width: 100%", align='center';><B>{$form.Title.label}</B></TD>
+     </TR>
+  </TABLE>
+  <TABLE style = "width: 100%">
+     <TR>
+         <br>
+         <hr>
+         <TD style = "width: 2%;"></TD>
+         <TD style = "width: 10%;"><B>{$form.TagNum.label}</B></TD>
+         <TD style = "width: 15%;">{$form.TagNum.html}</TD>
+         <TD style = "width: 12%;"></TD>
+         <TD style = "color: red; width: 34%;"><B>{$form.TagErr.html}</B></TD>
+         <TD style = "width: 2%;"></TD>
+         <TD style = "width: 6%;"><B>{$form.TagKey.label}</B></TD>
+         <TD style = "width: 7%;">{$form.TagKey.html}</TD>
+         <TD style = "width: 2%;"></TD>
+     </TR>
+  </TABLE>
+  <TABLE style = "width: 100%">
+     <TR> 
+         <TD style = "width: 2%;"></TD>
+         <TD style = "width: 10%;"><B>{$form.tStart.label}</B></TD>
+         <TD style = "width: 15%;">{$form.tStart.html}</TD>
+         <TD style = "width: 12%;"><a href='javascript:doInvtidLookup();' method=post id=Invtid>Inventory Lookup</a></TD>
+         <TD style = "color: red;width: 34%;"><B>{$form.InvErr.html}</B></TD>
+         <TD style = "width: 2%;"></TD>
+         <TD style = "width: 6%;"><B>{$form.SiteId.label}</B></TD>
+         <TD style = "width: 7%;">{$form.SiteId.html}</TD>
+         <TD style = "width: 2%;"></TD>
+     </TR>
+  </TABLE>
+  <TABLE style = "width: 100%">
+     <TR>
+         <TD style = "width: 2%;"></TD>
+         <TD style = "width: 10%;"><B>{$form.Unit.label}</B></TD>
+         <TD style = "width: 15%;">{$form.Unit.html}</TD>
+         <TD style = "width: 12%;"></TD> 
+         <TD style = "width: 34%;"></TD>
+         <TD style = "width: 2%;"></TD>
+         <TD style = "width: 6%;"><B>{$form.Action.label}</B></TD>
+         <TD style = "width: 7%;">{$form.Action.html}</TD>
+         <TD style = "width: 2%;"></TD>
+     </TR>
+  </TABLE>
+  <TABLE style = "width: 100%">
+     <TR>
+         <TD style = "width: 2%;"></TD>
+         <TD style = "width: 10%;"><B>{$form.Qty.label}</B></TD>
+         <TD style = "width: 15%;">{$form.Qty.html}</TD>
+         <TD style = "width: 12%;"></TD>
+         <TD style = "color: red; width: 34%;"><B>{$form.QtyErr.html}</B></TD>
+         <TD style = "width: 2%;"></TD>
+         <TD style = "width: 6%;"><B></B></TD>
+         <TD style = "width: 7%;"></TD>
+         <TD style = "width: 2%;"></TD>
+     </TR>
+  </TABLE>
+  <TABLE style = "width: 100%">
+     <TR>
+         <TD style = "width: 2%;"></TD>
+         <TD style = "width: 10%;"><B>{$form.WLoc.label}</B></TD>
+         <TD style = "width: 15%;">{$form.WLoc.html}</TD>
+         <TD style = "width: 12%;"></TD>
+         <TD style = "color: red; width: 34%;"><B>{$form.WLocErr.html}</B></TD>
+         <TD style = "width: 2%;"></TD>
+         <TD style = "width: 6%;"><B></B></TD>
+         <TD style = "width: 7%;"></TD>
+         <TD style = "width: 2%;"></TD>
+     </TR>
+  </TABLE>
+  <TABLE style = "width: 100%">
+     <TR> 
+         <TD style = "width: 2%;"></TD>
+         <TD style = "width: 10%;"><B>{$form.custid.label}</B></TD>
+         <TD style = "width: 15%;">{$form.custid.html}</TD>
+         <TD style = "width: 12%;"><a href='javascript:doCustLookup();' method=post id=custLookup>Customer Lookup</a></TD>
+         <TD style = "color: red; width: 34%;"><B>{$form.CustErr.html}</B></TD>
+         <TD style = "width: 2%;"></TD>
+         <TD style = "width: 6%;"><B></B></TD>
+         <TD style = "width: 7%;"></TD>
+         <TD style = "width: 2%;"></TD>
+     </TR>
+  </TABLE>
+  <TABLE style = "width: 100%">
+     <TR>
+         <TD style = "width: 2%;"></TD>
+         <TD style = "width: 10%;"><B>{$form.Ord.label}</B></TD>
+         <TD style = "width: 15%;">{$form.Ord.html}</TD>
+         <TD style = "width: 12%;"></TD>
+         <TD style = "color: red; width: 34%;"><B>{$form.OrdErr.html}</B></TD>
+         <TD style = "width: 2%;"></TD>
+         <TD style = "width: 6%;"><B></B></TD>
+         <TD style = "width: 7%;"></TD>
+         <TD style = "width: 2%;"></TD>
+     </TR>
+  </TABLE>
+  <TABLE style = "width: 100%">
+     <TR>
+        <br>
+        <hr>
+        <TD style = "width: 1%;"></TD>
+        <TD style = "width: 6%;">{$form.save.html}</TD>
+        <TD style = "width: 1%;"></TD>
+        <TD style = "width: 6%;">{$form.delete.html}</TD>        
+        <TD style = "width: 4%;"></TD>
+        <TD style = "width: 30%;"><a href='TagList.php?isnew=N&vkey={$vkey}&site={$siteid}'>Return to Physical Inventory Tag List</a></TD>
+        <TD style = "color: blue; width: 52%;"><B>{$form.Msg.html}</B></TD>
+     </TR>
+  </TABLE>
+  {if $action == 'Add'}
+      <script language="JavaScript"> document.getElementById("TagNum").focus(); </script>
+  {else}
+      <script language="JavaScript"> document.getElementById("tStart").focus(); </script>
+  {/if}
+  </form>

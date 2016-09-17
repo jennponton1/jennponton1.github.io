@@ -1,0 +1,33 @@
+<form {$form.attributes}>
+{$form.hidden}
+  
+<h3>Shipment Details for {$InvtID} on order {$OrdNbr}</h3>
+
+        <b></b><table><tbody><tr><th style="border-bottom: thin solid black;">Del Tck Nbr</th><th style="border-bottom: thin solid black;">Ship Date</th>
+        <th style="border-bottom: thin solid black;">Invc Nbr</th><th style="border-bottom: thin solid black;">Ship To</th>
+        <th style="border-bottom: thin solid black;">Ship Via</th><th style="border-bottom: thin solid black;">FOB</th>
+        <th style="border-bottom: thin solid black;">Freight</th>
+        <th style="border-bottom: thin solid black;">Pcs Delivered</th><th style="border-bottom: thin solid black;">Board Feet</th>
+
+        <th style="border-bottom: thin solid black;">Billing Units</th></tr>
+{foreach from=$Details item=ship }
+<tr><td>{$ship.DelTcktNo}</td>
+<td>{$ship.ShipDate}</td>
+<td>{$ship.InvNbr}</td>
+<td>{$ship.ShipFirstName}{$ship.ShipLastName}</td>
+<td nowrap="nowrap">{$ship.ShipVia}</td>
+<td width="100" align="center">{$ship.FOB}</td>
+<td align="right">{$ship.Freight}</td>
+<td align="right">{$ship.PcsDelvd}</td>
+<td align="right">{$ship.BF}</td>
+<td align="right">{$ship.BU}</td></tr>
+{/foreach}
+<tr><td style="border-top: thin solid black;"><b>TOTALS</b></td><td style="border-top: thin solid black;">&nbsp;</td>
+       <td style="border-top: thin solid black;">&nbsp;</td><td style="border-top: thin solid black;">&nbsp;</td>
+
+       <td style="border-top: thin solid black;">&nbsp;</td><td style="border-top: thin solid black;">&nbsp;</td>
+       <td style="border-top: thin solid black;">&nbsp;</td>
+       <td style="border-top: thin solid black;" align="right"><b>{$TotalPcs}</b></td><td style="border-top: thin solid black;" align="right"><b>{$TotalBF}</b></td><td style="border-top: thin solid black;" align="right"><b>{$TotalBU}</b></td></tr>
+</tbody></table><p></p><center><a href="javascript:close()">Close Window</a><p></p>
+</center>
+</form>

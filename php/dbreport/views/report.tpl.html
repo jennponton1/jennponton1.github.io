@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Report: {$title}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="/globals/js/jquery/jquery.js"></script>
+        <script src="/globals/js/jquery/jquery.datatables.js"></script>
+        <link href="/globals/css/jquery/htw.datatables.css" rel="stylesheet">
+        <!-- {literal} -->
+        <style>
+            body {
+                font-family: 'trebuchet MS', 'Lucida sans', Arial;
+                font-size: 14px;
+                color: #444;
+            }
+            #critBox {
+                border: thin solid black;
+                min-height: 1em;
+                clear: both;
+                padding: 0.25em;
+            }
+            #gridDiv {
+            }
+            #critHdr {
+                border: thin solid black;
+                float: left;
+                padding-right: 1em;
+                padding-left: 0.5em;
+            }
+            #critBox label {
+                display: inline-block;
+                min-width: 10em;
+                font-family: 'trebuchet MS', 'Lucida sans', Arial;
+                font-size: 14px;
+                color: #444;
+            }
+            td.tblNumber {
+                text-align: right;
+            }
+        </style>
+        <!-- {/literal} -->
+    </head>
+    <body>
+        <div id="reportHdr">
+            <h3>{$title}</h3>
+        </div>
+        <div id="critDiv">
+            <div id="critHdr">
+                Criteria: &nbsp;<span id="critBoxInd">v</span>
+            </div>
+            <div id="critBox">
+
+            </div>
+            <div id="critFooter">
+                <button id="critFilter">Apply Filter</button>
+                <button id="printButton">Copy Table</button>
+            </div>
+        </div>
+        <div id="gridDiv">
+            <table id="gridTbl"></table>
+        </div>
+        <script>
+            var reportObject="{$object}";
+            var tableDef = {$tableDefinition};
+            var initialCriteria = {$initialCriteria};
+            var staticCriteria = {$staticCriteria};
+            var ajaxURL = {if $ajaxURL eq ''} "" { else } "{$ajaxURL}" {/if}
+        </script>
+        <script src="?do=getReportJS"></script>
+        {$additionalJS}
+    </body>
+</html>

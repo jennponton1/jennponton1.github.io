@@ -1,0 +1,182 @@
+<?php
+//**************************************************************************************
+//  Filename:   FileFuncs.class
+//  Purpose:    To perform commonly-used file functions
+//***************************************************************************************}
+
+//class Logfile--creates & writes to logfile f
+
+class logFile {
+
+  var $filename;
+  var $logfile;
+
+  function logFile()
+  {  $this->filename = '';
+     $this->logfile = '';     
+  }  //end function Logfile
+  
+  //open file for logging
+  function open($filename)
+    {  
+      $this->filename = $filename;
+      $this->logfile = fopen($filename, 'ab');
+    }  //end function open
+    
+  //write to opened log file  
+  function log($text)
+  {  
+  $date = date('m/d/Y H:i:s ');
+  $text = $date.$text."\r\n";
+  fwrite($this->logfile, $text);
+  }  //end function log  
+  
+  //closes logfile
+  function close()
+  {
+  fclose($this->logfile);
+  }  //end function 
+  
+}  //end class Logfile  
+
+//class iniFile--allows user to access iniFiles
+class iniFile {
+
+  var $filename;
+  var $section;
+  var $message;  //any message that may need to be passed (error or otherwise)
+  
+  function iniFile()
+    {
+    $this->filename = '';
+    $this->section = '';
+    $this->message = '';
+    }
+
+  //returns associative array with section values:
+  function readSection($filename, $section)
+  {
+   $this->filename = $filename;
+   $this->section = $section;
+   
+   $iniVals = array();
+   
+   $section = '['.$section.']';
+   $inifile = fopen($filename, "rb");
+   if (!$inifile)
+   {
+       $iniVals['ERROR'] = "Can't open file $filename!";
+       $this->message = "ERROR:  Can't open file $filename!";
+       return $iniVals;   
+   }  //end if 
+  
+   $foundSection = false;
+   
+   while (!feof($inifile)) {
+     $vStr = trim(fgets($inifile));
+     //go till you get to the section you're looking for
+     if (substr($vStr, 0, 1)=='[')
+       $foundSection = false;
+
+     if ($vStr == $section)
+       $foundSection = true;
+     
+     $pos = strpos($vStr, '=');
+     if ($pos === false)
+     {  
+     }
+     else
+     { if ($foundSection == true)
+       { 
+       $vTStr = strstr($vStr,"=");
+       $vTStr = substr($vTStr,1,strlen($vTStr)-1);
+       $vLabel = substr($vStr, 0, strpos($vStr, '='));
+       $iniVals[$vLabel]=$vTStr;
+       }  //end if 
+
+     }  //end else found =
+   } //end while
+   
+  fclose($inifile);   
+  return $iniVals;   
+}  //end function readSection
+
+/***************************************************************************************
+  Function:   writeIniString
+  Purpose:    To write $val to an ini file
+  Input from: $section to write to, $id=the name of the key for which to set a value, 
+              $val the string value to write
+  Output to:  ini file
+***************************************************************************************/
+
+function writeIniString($section, $id, $val)
+{ 
+  $endl = "\r\n";
+  $iniVals = parse_ini_file($this->filename, true);
+
+  $iniSections = array_keys($iniVals);
+  $foundSection = false;
+
+  for ($i=0;$i<count($iniSections);$i++)
+    {
+    if ($iniSections[$i] == $section)
+      {
+       $foundSection = true;
+       $iniKeys = array_keys($iniVals[$section]);
+       $foundKey = false;
+       for ($j=0; $j<count($iniKeys); $j++)
+         {
+         if ($iniKeys[$j] == $id)
+           { $foundKey = true;
+             $iniVals[$section][$id] = $val;
+           }  //end if found Key
+         }  //end for j
+      }  //end if found Section
+    }  //end for i
+    
+    
+  //now that the array has been set, write it to the file:
+  if (!$foundSection)
+    { $this->message = "ERROR: Section $section not found!";
+      return;  
+    }  //end if 
+    
+  if (!$foundKey)
+    {
+    $this->message = "ERROR: Key $id not found!";
+    return;  
+    }   //end if 
+    
+  $inifile = fopen($this->filename, 'wb');
+  if (!$inifile)
+    {
+    $this->message = "ERROR:  Can't open file ".$this->filename."!";
+    return;  
+    }  //end if 
+    
+  $iniSections = array_keys($iniVals);   
+  $writeStr = '';
+  
+  for ($i=0;$i<count($iniSections);$i++)
+    { $thisSection = $iniSections[$i]; 
+      $writeStr .= "[".$thisSection."]".$endl;
+      
+      $iniKeys = array_keys($iniVals[$thisSection]);
+      for ($j=0; $j<count($iniKeys); $j++)
+        { $thisKey = $iniKeys[$j];
+          $writeStr.=$thisKey."=".$iniVals[$thisSection][$thisKey].$endl; 
+        }
+    }  //end for i
+     
+  fwrite($inifile,$writeStr);
+  fclose($inifile);
+}  //end function writeIni
+
+function closeIni()
+{
+fclose($this->filename);
+} 
+}  //end class iniFile
+
+
+?>

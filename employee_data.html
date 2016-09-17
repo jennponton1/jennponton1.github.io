@@ -5,8 +5,21 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
+    <head>
+        <title>Employee Entry</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="/globals/js/jquery/jquery.js"></script>
+        <script src="/globals/js/jquery/jquery.datatables.js"></script>
+        <script src="views/main.js"></script>
+        <script src="/globals/js/jquery/jquery-ui.js"></script>
+        <link rel="stylesheet" type="text/css" href="/globals/css/jquery/jquery.datatables.css">
+        <link rel="stylesheet" type="text/css" href="/globals/css/jquery/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+    </head>
     <body>
         <h1>Hello World</h1>
         <p>I'm hosted with GitHub Pages.</p>
+        <label class="dtl_lbl" for="empfname">Employee First Name:&nbsp;</label>
+        <input class="dtl_inp" type="text" id="empfname" readonly="readonly" value="{$empfname}"/>
     </body>
 </html>

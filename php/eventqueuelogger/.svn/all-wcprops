@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/3117/Libraries/trunk/eventqueuelogger
+END
+eventqueuelogger.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/2276/Libraries/trunk/eventqueuelogger/eventqueuelogger.inc.php
+END
+readQueue.bat
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/2276/Libraries/trunk/eventqueuelogger/readQueue.bat
+END
+EventQueueReader.app.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/2276/Libraries/trunk/eventqueuelogger/EventQueueReader.app.php
+END
+EventQueueReader.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/2276/Libraries/trunk/eventqueuelogger/EventQueueReader.class.php
+END
+EventQueueWriter.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/2276/Libraries/trunk/eventqueuelogger/EventQueueWriter.class.php
+END

@@ -1,0 +1,68 @@
+<form method=POST name=fmMaintDisp7 id=fmMaintDisp7 {$form.attributes}>{$form.hidden}
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD style = "width: 7%;"><b>{$form.Hardware.label}</b></TD>
+            <TD style = "width: 93%;">{$form.Hardware.html}</TD>
+         </TR>
+         <TR>
+            <TD style = "width: 7%;"><b>{$form.Hours.label}</b></TD>
+            <TD style = "width: 93%;">{$form.Hours.html}</TD>
+         </TR>
+         <TR>
+            <TD><br></TD>
+         </TR>
+  </TABLE>
+
+  <TABLE>
+         <TR>
+            <TD>{$form.htTable.label}</TD>
+         </TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD style = "width: 21%;"><b>{$form.Head1.html}</b></TD>
+            <TD style = "width: 79%;"><b>{$form.Head2.html}</b></TD>
+         </TR>
+  </TABLE>
+
+  <TABLE>
+         <TR>
+            <TD>{$form.htTable2.label}</TD>
+         </TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD style = "width: 12%;"><b>{$form.Note.label}</B></TD>
+            <TD style = "width: 60%;">{$form.Note.html}</TD>
+            <TD style = "width: 28%;"></TD>
+         </TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD style = "width: 12%;"><b>{$form.MaintPerson.label}</b></TD>
+            <TD style = "width: 20%;">{$form.MaintPerson.html}</TD>
+            <TD style = "width: 68%;">{$form.MSG1.html}</TD>
+         </TR>
+         <TR>
+            <TD style = "width: 12%;"><b>{$form.MaintForeM.label}</b></TD>
+            <TD style = "width: 20%;">{$form.MaintForeM.html}</TD>
+            <TD style = "width: 68%;">{$form.MSG2.html}</TD>
+         </TR>
+  </TABLE>
+
+  <TABLE>
+         <TR>
+            <TD><br></TD>
+         </TR>
+         <TR>
+            <TD>{$form.run.html}</TD>
+            <TD>{$form.cancel.html}</TD>
+            <TD style = "color: red;"><b>&nbsp;&nbsp;{$form.EMSG.html}</b></TD>
+         </TR>
+  </TABLE>
+
+</form>

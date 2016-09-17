@@ -1,0 +1,72 @@
+{literal}
+<script language='javascript'>
+//script for this program only:
+function doCustLookup(){
+ var newWin = window.open("SOLookUp.php?do=custLookUp","NewWin","width=640,top=50, left=50, height=480,toolbar=no, resizable=yes");
+}  //function doCustLookup
+function doOrdNbrLookup()
+{
+ var st = document.getElementById("custid").value;
+ if (st == "")
+   {alert("You must enter a customer id to lookup order numbers!");
+    return;
+   } //end if
+ var newWin = window.open("SOLookUp.php?do=orderLookUpByCust&custid="+st,"NewWin","width=640,height=480,top=50, left=50, toolbar=no, resizable=yes");
+}  //function doOrdNbrLookup
+	function doSOLookup()
+	{
+	  var CustOrd = document.getElementById("tCustOrd").value;
+	  var OrdNbr  = document.getElementById("OrdNbr").value;
+	
+	  if (CustOrd == "" && OrdNbr == "")
+	  {
+	    alert("You must enter an Order Number or Customer Order Number!");
+	    return false;
+	  }  //if
+	  else
+	    {return true; }
+	}  //function doSOLookup
+</script>
+{/literal}
+<form {$form.attributes} onsubmit="return doSOLookup()">
+{$form.hidden}
+<br>
+<table style="font-family: Arial; font-size: 10pt; line-height: 10pt;" border="0">
+  <tbody>
+    <tr>
+      <td width="110">Enter Customer ID if you need to
+find an order number:</td>
+      <td><input name="custid" id="custid" type="text"></td>
+      <td><a href="javascript:doCustLookup();">Lookup
+Customers</a> </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td align="center"><a href="javascript:doOrdNbrLookup();">Lookup Order Numbers<br>
+for Custid</a></td>
+    </tr>
+    <tr>
+      <td width="110">Enter Order Number: </td>
+      <td><input id="OrdNbr" name="OrdNbr" type="text"></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td align="center" width="20"><b>OR</b></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="110">Enter Customer Order Number: </td>
+      <td><input id="tCustOrd" name="tCustOrd" type="text"></td>
+    </tr>
+    <tr>
+      <td width="110"><br>
+Include Pricing Information: </td>
+      <td><input name="AddPrice" id="AddPrice" type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<input name="submit1" value="Submit Query" type="submit" >
+</form>

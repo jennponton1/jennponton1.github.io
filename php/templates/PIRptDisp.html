@@ -1,0 +1,104 @@
+<script type="text/javascript">
+{literal}
+
+function DoSubmit(vRpt, vSite, vKey){
+   if (vRpt == 'RPART')
+      {var regdtwin = window.open("PartNbrRpt.php?vSite="+vSite+"&vKey="+vKey+"&vType=REG", "_blank");}
+   if (vRpt == 'IPART')
+      {var regdtwin = window.open("PartNbrRpt.php?vSite="+vSite+"&vKey="+vKey+"&vType=INS", "_blank");}
+   if (vRpt == 'VPART')
+      {var regdtwin = window.open("PartNbrRpt.php?vSite="+vSite+"&vKey="+vKey+"&vType=VMI", "_blank");}
+   if (vRpt == 'BYTAG')
+      {var regdtwin = window.open("report_PhysInvByTag.php?vSite="+vSite+"&vkey="+vKey, "_blank");}
+   if (vRpt == 'RSUMM')
+      {var regdtwin = window.open("report_PhysInvSummary.php?vSite="+vSite+"&vkey="+vKey+"&vType=REG", "_blank");}
+   if (vRpt == 'ISUMM')
+      {var regdtwin = window.open("report_PhysInvSummary.php?vSite="+vSite+"&vkey="+vKey+"&vType=INS", "_blank");}
+   if (vRpt == 'VSUMM')
+      {var regdtwin = window.open("report_PhysInvSummary.php?vSite="+vSite+"&vkey="+vKey+"&vType=VMI", "_blank");}
+   if (vRpt == 'OSWDID')
+      {var regdtwin = window.open("OvrShortWdidRpt.php?vSite="+vSite+"&vkey="+vKey+"&vType=REG", "_blank");}
+   if (vRpt == 'TOSWDID')
+      {var regdtwin = window.open("OvrShortWdidRpt.php?vSite="+vSite+"&vkey="+vKey+"&vType=TSO", "_blank");}
+   if (vRpt == 'ROS')
+      {var regdtwin = window.open("OvrShortRpt.php?vSite="+vSite+"&vkey="+vKey+"&vType=REG", "_blank");}
+   if (vRpt == 'IOS')
+      {var regdtwin = window.open("OvrShortRpt.php?vSite="+vSite+"&vkey="+vKey+"&vType=INS", "_blank");}
+   if (vRpt == 'VOS')
+      {var regdtwin = window.open("OvrShortRpt.php?vSite="+vSite+"&vkey="+vKey+"&vType=VMI", "_blank");}
+   if (vRpt == 'RCMP')
+      {var regdtwin = window.open("report_PhysInvSummComp.php?vSite="+vSite+"&vkey="+vKey+"&vType=REG", "_blank");}
+   if (vRpt == 'ICMP')
+      {var regdtwin = window.open("report_PhysInvSummComp.php?vSite="+vSite+"&vkey="+vKey+"&vType=INS", "_blank");}
+   if (vRpt == 'VCMP')
+      {var regdtwin = window.open("report_PhysInvSummComp.php?vSite="+vSite+"&vkey="+vKey+"&vType=VMI", "_blank");}
+   if (vRpt == 'ICUST')
+      {var regdtwin = window.open("report_CustInventory.php?vSite="+vSite+"&vkey="+vKey+"&vType=INS", "_blank");}
+   if (vRpt == 'TCUST')
+      {var regdtwin = window.open("report_CustInventory.php?vSite="+vSite+"&vkey="+vKey+"&vType=TSO", "_blank");}
+   if (vRpt == 'TWOOD')
+      {var regdtwin = window.open("OvrShortCstWdidRpt.php?vSite="+vSite+"&vkey="+vKey+"&vType=TSO", "_blank");}
+}
+
+function doGoHome(vKey ,vSite) {
+   document.getElementById('fmPIRptDisp').action = "TagList.php?vkey=" + vKey + "&vsite=" + vSite;
+   document.getElementById('fmPIRptDisp').submit();
+}
+
+{/literal}
+</script>
+
+<form method=POST name=fmPIRptDisp id=fmPIRptDisp {$form.attributes}>{$form.hidden}
+
+  <TABLE style = "width: 100%">
+      <TD style = "font-size: 24; width: 100%", align='center';><B>Physical Inventory Reporting Module</B></TD>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+      <TD style = "color: red; width: 100%", align='left';>Please select from the following menu:</TD>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+      <TR><TD><B>General Reports:</B></TD></TR>
+      <TR><TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("BYTAG",  "{$vsite}", "{$vkey}");'>Physical Inventory By Tag ID (ALL) </a></TD>
+          <TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("ROS",    "{$vsite}", "{$vkey}");'>Over/Short Report                  </a></TD></TR>
+      <TR><TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("RPART",  "{$vsite}", "{$vkey}");'>Physical Inventory By Part #       </a></TD>
+          <TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("OSWDID", "{$vsite}", "{$vkey}");'>Over/Short By Woodid               </a></TD></TR>
+      <TR><TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("RSUMM",  "{$vsite}", "{$vkey}");'>Physical Inventory Summary         </a></TD>
+          <TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("RCMP",   "{$vsite}", "{$vkey}");'>Summary Comparison                 </a></TD></TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+      <TR><TD><B>INS Reports:</B></TR></TR>
+      <TR><TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("IPART", "{$vsite}", "{$vkey}");'>Physical Inventory By Part #  </a></TD>
+          <TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("ICMP",  "{$vsite}", "{$vkey}");'>Summary Comparison            </a></TD></TR>
+      <TR><TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("ISUMM", "{$vsite}", "{$vkey}");'>Physical Inventory Summary    </a></TD>
+          <TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("ICUST", "{$vsite}", "{$vkey}");'>INS Customer Inventory Report </a></TD></TR>
+      <TR><TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("IOS",   "{$vsite}", "{$vkey}");'>Over/Short Report             </a></TD></TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+      <TR><TD><B>TSO Reports:</B></TR></TR>
+      <TR><TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("TWOOD",   "{$vsite}", "{$vkey}");'>TSO By Customer By Woodid Report </a></TD>
+          <TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("TOSWDID", "{$vsite}", "{$vkey}");'>TSO Over/Short By Woodid</a>     </TD></TR>
+      <TR><TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("TCUST",   "{$vsite}", "{$vkey}");'>TSO Customer Inventory Report    </a></TD></TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+      <TR><TD><B>VMI Reports:</B></TR></TR>
+      <TR><TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("VPART", "{$vsite}", "{$vkey}");'>Physical Inventory By Part # </a></TD>
+          <TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("VOS",   "{$vsite}", "{$vkey}");'>Over/Short Report            </a></TD></TR>
+      <TR><TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("VSUMM", "{$vsite}", "{$vkey}");'>Physical Inventory Summary   </a></TD>
+          <TD style = "width: 50%";>&nbsp&nbsp<a href='javascript:DoSubmit("VCMP",  "{$vsite}", "{$vkey}");'>Summary Comparison           </a></TD></TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+     <TR>
+        <br>
+        <hr>
+        <br>
+        <TD<a href='Javascript:doGoHome("{$vkey}","{$vsite}");'>Return to Physical Inventory Tag List</a></TD>
+     </TR>
+  </TABLE>
+
+</form>

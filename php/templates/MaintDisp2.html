@@ -1,0 +1,88 @@
+<form method=POST name=fmMaintDisp2 id=fmMaintDisp2 {$form.attributes}>{$form.hidden}
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD style = "width: 15%;"><b>{$form.Kiln.label}</b></TD>
+            <TD style = "width: 85%;">{$form.Kiln.html}</TD>
+         </TR>
+         <TR>
+            <TD style = "width: 15%;"><b>{$form.Temperature.label}</b></TD>
+            <TD style = "width: 85%;">{$form.Temperature.html}</TD>
+         </TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD style = "color: blue;"><br><b>{$form.Head1.html}</b></TD>
+         </TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD style = "width: 41%">{$form.htTable.label}</TD>
+            <TD style = "width: 1%"></TD>
+            <TD style = "width: 58%">{$form.htTable2.label}</TD>
+         </TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD style = "color: blue;"><b>{$form.Head2.html}</b></TD>
+         </TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD style = "width: 41%">{$form.htTable3.label}</TD>
+            <TD style = "width: 2%"></TD>
+            <TD style = "width: 41%">{$form.htTable4.label}</TD>
+            <TD style = "width: 16%"></TD>
+         </TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD style = "color: blue;">{$form.MSG6.html}</TD>
+         </TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+         <TR> 
+            <TD style = "width: 12%;">{$form.Note.html}</TD>
+         </TR>
+         <TR>
+            <TD><br></TD>
+         </TR>
+         <TR>
+            <TD style = "width: 12%;">{$form.Warning.html}</TD>
+         </TR>
+         <TR>
+            <TD><br></TD>
+         </TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD style = "width: 12%;"><b>{$form.MaintPerson.label}</b></TD>
+            <TD style = "width: 20%;">{$form.MaintPerson.html}</TD>
+            <TD style = "width: 68%;">{$form.MSG1.html}</TD>
+         </TR>
+         <TR>
+            <TD style = "width: 12%;"><b>{$form.MaintOpM.label}</b></TD>
+            <TD style = "width: 20%;">{$form.MaintOpM.html}</TD>
+            <TD style = "width: 68%;">{$form.MSG3.html}</TD>
+         </TR>
+  </TABLE>
+
+  <TABLE>
+         <TR>
+            <TD><br></TD>
+         </TR>
+         <TR>
+            <TD>{$form.run.html}</TD>
+            <TD>{$form.cancel.html}</TD>
+            <TD style = "color: red;"><b>&nbsp;&nbsp;{$form.EMSG.html}</b></TD>
+         </TR>
+  </TABLE>
+
+</form>

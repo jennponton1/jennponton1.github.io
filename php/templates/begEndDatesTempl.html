@@ -1,0 +1,24 @@
+	<SCRIPT LANGUAGE="JavaScript" SRC="/calendar/calendar.js">
+    </SCRIPT>
+
+     <form method=POST name=fmMain id=fmMain {$form.attributes}>
+     {$form.hidden}
+        <TABLE>  
+       <TR> 
+        <TD><B>{$form.begdate.label}</B></TD>
+        <TD>{$form.begdate.html}<A HREF='javascript:void(0)'
+						 ONCLICK='call_calendar(document.fmMain.begdate);'><IMG
+						SRC='/calendar/img/cal.gif' WIDTH='16' HEIGHT='16' BORDER='0' ALIGN='bottom'></A>
+						<FONT SIZE='-2'>Click for a calendar</FONT><br>Use (mm/dd/YYYY) Format </TD></TD></TR>
+        </TR> <TR> 
+        <TD><B>{$form.enddate.label}</B></TD>
+        <TD>{$form.enddate.html}<A HREF='javascript:void(0)'
+						 ONCLICK='call_calendar(document.fmMain.enddate);'><IMG
+						SRC='/calendar/img/cal.gif' WIDTH='16' HEIGHT='16' BORDER='0' ALIGN='bottom'></A>
+						<FONT SIZE='-2'>Click for a calendar</FONT><br>Use (mm/dd/YYYY) Format </TD></TD></TR>
+        
+	<TR>
+	<TD>{$form.run.html}</TD>
+	</TR>
+	</TABLE>
+        </form>

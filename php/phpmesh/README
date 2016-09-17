@@ -1,0 +1,94 @@
+
+PHP-Mesh   - Page meshing framework for PHP.
+Copyright (C) 2003-2009  Trejkaz
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+You can contact the author by electronic mail, which is presently
+at the following address: trejkaz@trypticon.org
+
+
+PURPOSE:
+
+    There has been a wonderful project for a while, started by the OpenSymphony
+    team, called SiteMesh.
+
+    SiteMesh is a way to merge and style web pages, without needing complicated
+    and hard to learn technologies such as XSL, and without needing unnecessary
+    cruft such as header and footer includes.
+
+    The goal of this project is to bring the convenience and simplicity of the
+    SiteMesh approach to PHP, borrowing from the Java version where appropriate.
+
+REQUIRMENTS:
+
+    PHP 4.1.2 is known to work.  Earlier versions may work too but are untested.
+        (I will add more to this list if you send me a report on what works
+         and what doesn't.)
+
+    An Apache web server environment is preferable, as it is the server which
+    my sample configuration scripts are written for.  Other servers should work
+    with the correct configuration (but does anyone really run anything other
+    than Apache anymore?)
+
+    For the php_value directives to work in your configuration, the web server
+    requires the AllowOverride directive to contain Options.  To be able to
+    decorate files whose extension is .html, you will need AllowOverride FileInfo
+    as well.
+
+INSTALLING:
+
+    The following instructions will have you install a test page to check whether
+    PHP-Mesh will work for you.
+
+    Instructions will assume installation by an ordinary user, not for
+    site-wide use.
+
+    1. Extract the PHP-Mesh archive to a known location, such as ~/phpmesh .
+
+    2. Copy the entire contents of the example/ directory to somewhere in your
+       web directory.  In my example, I will copy the entire example directory
+       into /var/www/localhost/htdocs/example .
+
+    3. Edit the .htaccess file (/var/www/localhost/htdocs/example/.htaccess in
+       my case) so that the placeholders point to the correct location where you
+       extracted PHP-Mesh.
+
+    4. View the test page in your web browser.  In my case the URL for the test
+       page is http://localhost/examples/ .  You should see a red border around
+       that page.  If you do not, then you should see an error message detailing
+       what might be wrong.
+
+INSTALLATION NOTES:
+
+    On some default Apache installs, including that of Mac OSX, Apache is
+    configured to allow no overrides.  In this event, you will need to add
+    "AllowOverride Options" to your Apache configuration, so that the php_value
+    settings in the .htaccess file work correctly.
+
+FURTHER INFORMATION:
+
+    For further information, I suggest checking out the docs/ directory for more
+    detailed documentation.
+
+TODO:
+
+    I need to make some more documented examples, and write a tutorial.
+
+FEEDBACK:
+
+    Feedback and suggestions to trejkaz@trypticon.org
+
+

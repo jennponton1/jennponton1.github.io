@@ -1,0 +1,623 @@
+htdeltck T256921 array (
+)
+htubdhdr T256921 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => '',
+)
+htdeltck T256921 array (
+)
+htubdhdr T256921 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244356 array (
+)
+htubdhdr P244356 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244357 array (
+)
+htubdhdr P244357 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272933 array (
+)
+htubdhdr M272933 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272934 array (
+)
+htubdhdr M272934 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244358 array (
+)
+htubdhdr P244358 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T256923 array (
+)
+htubdhdr T256923 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T256924 array (
+)
+htubdhdr T256924 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269944 array (
+)
+htubdhdr D269944 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244359 array (
+)
+htubdhdr P244359 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244360 array (
+)
+htubdhdr P244360 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T256925 array (
+)
+htubdhdr T256925 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T256926 array (
+)
+htubdhdr T256926 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck W240056 array (
+)
+htubdhdr W240056 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244361 array (
+)
+htubdhdr P244361 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T256927 array (
+)
+htubdhdr T256927 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T214487 array (
+)
+htubdhdr T214487 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272935 array (
+)
+htubdhdr M272935 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272936 array (
+)
+htubdhdr M272936 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272937 array (
+)
+htubdhdr M272937 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269945 array (
+)
+htubdhdr D269945 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269946 array (
+)
+htubdhdr D269946 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269947 array (
+)
+htubdhdr D269947 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269948 array (
+)
+htubdhdr D269948 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244362 array (
+)
+htubdhdr P244362 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272938 array (
+)
+htubdhdr M272938 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269949 array (
+)
+htubdhdr D269949 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244363 array (
+)
+htubdhdr P244363 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269950 array (
+)
+htubdhdr D269950 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T214488 array (
+)
+htubdhdr T214488 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272939 array (
+)
+htubdhdr M272939 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272940 array (
+)
+htubdhdr M272940 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269951 array (
+)
+htubdhdr D269951 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272941 array (
+)
+htubdhdr M272941 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272942 array (
+)
+htubdhdr M272942 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272943 array (
+)
+htubdhdr M272943 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272944 array (
+)
+htubdhdr M272944 array (
+  'shipdate' => '2015-01-20',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272965 array (
+)
+htubdhdr M272965 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272966 array (
+)
+htubdhdr M272966 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244381 array (
+)
+htubdhdr P244381 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck W240061 array (
+)
+htubdhdr W240061 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244365 array (
+)
+htubdhdr P244365 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244366 array (
+)
+htubdhdr P244366 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272950 array (
+)
+htubdhdr M272950 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269953 array (
+)
+htubdhdr D269953 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269954 array (
+)
+htubdhdr D269954 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T214489 array (
+)
+htubdhdr T214489 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T214490 array (
+)
+htubdhdr T214490 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T214491 array (
+)
+htubdhdr T214491 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T214492 array (
+)
+htubdhdr T214492 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272951 array (
+)
+htubdhdr M272951 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T214493 array (
+)
+htubdhdr T214493 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T256932 array (
+)
+htubdhdr T256932 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269956 array (
+)
+htubdhdr D269956 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T256933 array (
+)
+htubdhdr T256933 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244368 array (
+)
+htubdhdr P244368 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244369 array (
+)
+htubdhdr P244369 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272952 array (
+)
+htubdhdr M272952 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T256934 array (
+)
+htubdhdr T256934 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244372 array (
+)
+htubdhdr P244372 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244373 array (
+)
+htubdhdr P244373 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269957 array (
+)
+htubdhdr D269957 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T214494 array (
+)
+htubdhdr T214494 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272953 array (
+)
+htubdhdr M272953 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272954 array (
+)
+htubdhdr M272954 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244374 array (
+)
+htubdhdr P244374 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T256936 array (
+)
+htubdhdr T256936 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272956 array (
+)
+htubdhdr M272956 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck W240066 array (
+)
+htubdhdr W240066 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269958 array (
+)
+htubdhdr D269958 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244375 array (
+)
+htubdhdr P244375 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244376 array (
+)
+htubdhdr P244376 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269959 array (
+)
+htubdhdr D269959 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T256937 array (
+)
+htubdhdr T256937 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244377 array (
+)
+htubdhdr P244377 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269960 array (
+)
+htubdhdr D269960 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272957 array (
+)
+htubdhdr M272957 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272958 array (
+)
+htubdhdr M272958 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272959 array (
+)
+htubdhdr M272959 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269961 array (
+)
+htubdhdr D269961 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck D269963 array (
+)
+htubdhdr D269963 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244379 array (
+)
+htubdhdr P244379 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272962 array (
+)
+htubdhdr M272962 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck W240067 array (
+)
+htubdhdr W240067 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272963 array (
+)
+htubdhdr M272963 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck M272964 array (
+)
+htubdhdr M272964 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck T256938 array (
+)
+htubdhdr T256938 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)
+htdeltck P244380 array (
+)
+htubdhdr P244380 array (
+  'shipdate' => '2015-01-21',
+  'invnbr' => '',
+  'invdate' => NULL,
+)

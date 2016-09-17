@@ -1,0 +1,71 @@
+<form method=POST name=fmMaintDisp3 id=fmMaintDisp3 {$form.attributes}>{$form.hidden}
+
+  <TABLE style = "width: 100%"> 
+         <TR>
+            <TD style = "width: 10%;"><b>{$form.MN.label}</b></TD>
+            <TD style = "width: 90%;">{$form.MN.html}</TD>
+         </TR>
+         <TR>
+            <TD style = "width: 10%;"><b>{$form.Unit.label}</b></TD>
+            <TD style = "width: 90%;">{$form.Unit.html}</TD>
+         </TR>
+         <TR>
+            <TD style = "width: 10%;"><b>{$form.YBuilt.label}</b></TD>
+            <TD style = "width: 90%;">{$form.YBuilt.html}</TD>
+         </TR>
+  </TABLE>
+
+  <TABLE>
+         <TR>
+            <TD><br></TD>
+         </TR>
+         <TR>
+            <TD style = "color: blue; width: 60%;">{$form.MSG4.html}</TD>
+            <TD style = "width: 40%;"></TD>
+         </TR>
+  </TABLE>
+
+  <TABLE>
+         <TR>
+            <TD>{$form.htTable.label}</TD>
+         </TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD style = "width: 12%;"><b>{$form.Note.label}</B></TD>
+            <TD style = "width: 60%;">{$form.Note.html}</TD>
+            <TD style = "width: 28%;"></TD>
+         </TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD style = "width: 12%;"><b>{$form.MaintPerson.label}</b></TD>
+            <TD style = "width: 20%;">{$form.MaintPerson.html}</TD>
+            <TD style = "width: 68%;">{$form.MSG1.html}</TD>
+         </TR>
+         <TR>
+            <TD style = "width: 12%;"><b>{$form.MaintForeM.label}</b></TD>
+            <TD style = "width: 20%;">{$form.MaintForeM.html}</TD>
+            <TD style = "width: 68%;">{$form.MSG2.html}</TD>
+         </TR>
+         <TR>
+            <TD style = "width: 12%;"><b>{$form.MaintOpM.label}</b></TD>
+            <TD style = "width: 20%;">{$form.MaintOpM.html}</TD>
+            <TD style = "width: 68%;">{$form.MSG3.html}</TD>
+         </TR>
+  </TABLE>
+
+  <TABLE>
+         <TR>
+            <TD><br></TD>
+         </TR>
+         <TR>
+            <TD>{$form.run.html}</TD>
+            <TD>{$form.cancel.html}</TD>
+            <TD style = "color: red;"><b>&nbsp;&nbsp;{$form.EMSG.html}</b></TD>
+         </TR>
+  </TABLE>
+
+</form>

@@ -1,0 +1,42 @@
+<form method=POST name=fmMaintDisp11 id=fmMaintDisp11 {$form.attributes}>{$form.hidden}
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD>{$form.Instructions.html}</TD>
+         </TR>
+         <TR>
+            <TD><br></TD>
+         </TR>
+  </TABLE>
+
+  <TABLE>
+         <TR>
+            <TD>{$form.htTable.label}</TD>
+         </TR>
+  </TABLE>
+
+  <TABLE style = "width: 100%">
+         <TR>
+            <TD style = "width: 12%;"><b>{$form.MaintForeM.label}</b></TD>
+            <TD style = "width: 20%;">{$form.MaintForeM.html}</TD>
+            <TD style = "width: 68%;">{$form.MSG2.html}</TD>
+         </TR>
+         <TR>
+            <TD style = "width: 12%;"><b>{$form.MaintOpM.label}</b></TD>
+            <TD style = "width: 20%;">{$form.MaintOpM.html}</TD>
+            <TD style = "width: 68%;">{$form.MSG3.html}</TD>
+         </TR>
+  </TABLE>
+
+  <TABLE> 
+         <TR>
+            <TD><br></TD>
+         </TR>
+         <TR>
+            <TD>{$form.run.html}</TD>
+            <TD>{$form.cancel.html}</TD>
+            <TD style = "color: red;"><b>&nbsp;&nbsp;{$form.EMSG.html}</b></TD>
+         </TR>
+  </TABLE>
+
+</form>

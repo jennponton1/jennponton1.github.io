@@ -1,0 +1,33 @@
+body { padding : 0; margin : 10px; }
+form { margin : 0; }
+input { vertical-align : middle; }
+h1 { margin : 0 0 10px 0; }
+p { margin : 10px 0 10px 0; }
+ul { margin-top : 10px; margin-bottom : 10px; }
+option { vertical-align : middle; }
+
+#ajxSelCust { width : 300px; font-family : Arial, sans-serif; font-size : 13px; padding-left : 4px; }
+
+#ajxSelCust { width : 300px; background : #fff; border : 1px solid #000; display : block; position: absolute; float : left; }
+* html div#ajxSelCust { width : 300px; } /* box model hack */
+
+#ajxSelAcct { width : 300px; font-family : Arial, sans-serif; font-size : 13px; padding-left : 4px; }
+
+#ajxSelAcct { width : 300px; background : #fff; border : 1px solid #000; display : block; position: absolute; float : left; }
+* html div#ajxSelAcct { width : 300px; } /* box model hack */
+
+#ajxSelPart { width : 400px; font-family : Arial, sans-serif; font-size : 13px; padding-left : 4px; }
+
+#ajxSelPart { width : 400px; background : #fff; border : 1px solid #000; display : block; position: absolute; float : left; }
+* html div#ajxSelPart { width : 400px; } /* box model hack */
+
+.sr, .srs { float: left; font-family : Arial, sans-serif; display:inline; font-size : 13px; padding : 1px 0 0 0; }
+
+.sr { background-color : #fff; color : #000; -moz-box-sizing: border-box; max-width: 400px;}
+.srs {background-color : #36c; color : #fff; cursor : pointer; padding-left: 4px; max-width: 400px;}
+
+.sr .src { color : #008000; display: block; -moz-box-sizing: border-box}
+.srs .src { color : #fff; display: block; -moz-box-sizing: border-box}
+.srt { float : left; font-size : 13px; margin-left : 4px; position: absolute; }
+.src { float : right; font-size : 10px; margin-right : 3px; padding-top : 2px; }
+

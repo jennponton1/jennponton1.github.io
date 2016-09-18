@@ -5,5 +5,20 @@
         <h1>Hello World</h1>
         <p>I'm hosted with GitHub Pages.</p>
     </body>-->
-    <script type="text/javascript" src="employee_data.js"></script>
+
+    <!--<script type="text/javascript" src="employee_data.js"></script>-->
+    <script src="js/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+       $.ajax({
+            url:'employee_data.php',
+            type:'GET', 
+//            data:"parameter=some_parameter",
+           success:function()
+           {
+//                  $("#thisdiv").html(data);
+               }
+        });
+    });
+    </script>
 </html>

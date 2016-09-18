@@ -1,5 +1,5 @@
 <?php
-
+echo "got to here";
     $row = 1;
     if (($handle = fopen("empfile.csv", "r")) !== FALSE) {
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {

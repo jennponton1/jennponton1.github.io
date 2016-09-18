@@ -1,10 +1,17 @@
 function viewEmps() {
+//    $.ajax({
+//        type: "GET",
+//        url: "empfile.csv",
+//        dataType: "text",
+//        success: function(data) {processData(data);}
+//     });
     $.ajax({
         type: "GET",
-        url: "empfile.csv",
-        dataType: "text",
-        success: function(data) {processData(data);}
-     });
+        url: "employee_data.php",
+        success: function() {
+            
+        }
+    });
 }
 
 function processData(allText) {

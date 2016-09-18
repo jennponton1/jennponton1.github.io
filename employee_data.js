@@ -1,11 +1,11 @@
-$(document).ready(function() {
+function viewEmps() {
     $.ajax({
         type: "GET",
         url: "empfile.csv",
         dataType: "text",
         success: function(data) {processData(data);}
      });
-});
+}
 
 function processData(allText) {
     var allTextLines = allText.split(/\r\n|\n/);

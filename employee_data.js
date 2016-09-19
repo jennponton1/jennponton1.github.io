@@ -45,7 +45,18 @@ var employees = {
                 lines.push(tarr);
 //            }
         }
-         alert(lines);
+//         alert(lines);
+        $('#emp_tbl').DataTable( {
+            data: lines,
+            columns: [
+                { title: "First Name" },
+                { title: "Last Name" },
+                { title: "Employee Number" },
+                { title: "Street Address" },
+                { title: "City" },
+                { title: "State" }
+            ]
+        } );
     }
 }
 

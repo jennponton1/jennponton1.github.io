@@ -70,8 +70,8 @@ var addEmpDlg = {
             return;
         }            
         this.state = '';
-        this.gridNode = evt.target.parentNode;
-        this.gridData = employees.table.fnGetData(this.gridNode);
+        //this.gridNode = evt.target.parentNode;
+        //this.gridData = employees.table.fnGetData(this.gridNode);
         $("body").append("<div id='adddlg'></div>");
         this.panel = $("#adddlg").dialog({
             close: function() {

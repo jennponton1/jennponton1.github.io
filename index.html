@@ -2,6 +2,7 @@
 
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!--        <script src="/globals/js/jquery/jquery.js"></script>
         <script src="/globals/js/jquery/jquery.dataTables.js"></script>
         <script src="/globals/js/jquery/jquery-ui.js"></script>-->
@@ -14,10 +15,13 @@
         <script src="employee_data.js"></script>
     </head>
     <body>
-        <center><button id="viewemps" type="button" onClick="javascript:viewEmps();">View Current Employees</button></center>
+        <center><button id="viewemps" type="button" onClick="javascript:employees.addEmp();">Add New Employee</button></center>
         <table id="emp_tbl" class="display" width="100%"></table>
     </body>
-    
+<!--    <div id="input-dialog" class="modal-dialog">
+        <div id="dialog-detail"></div>
+    </div>
+    <div id="dialog" class="modal-dialog"></div>-->
 <!--    <body>
         <h1>Hello World</h1>
         <p>I'm hosted with GitHub Pages.</p>

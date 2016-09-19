@@ -60,23 +60,99 @@ var employees = {
     }
 }
 
+var addEmpDlg = {
+    panel : '',
+    gridNode : '',
+    gridData : '',
+    state : '',
+    init: function(evt) {
+        if (this.panel != '') {
+            return;
+        }            
+        this.state = '';
+        this.gridNode = evt.target.parentNode;
+        this.gridData = employees.table.fnGetData(this.gridNode);
+        $("body").append("<div id='adddlg'></div>");
+        this.panel = $("#adddlg").dialog({
+            close: function() {
+                addEmpDlg.panel = '';
+            }
+        });
+        
+        $("#adddlg").html(
+            "<table>"+
+            "<tr>"+
+            "<td><label for='fname'>First Name:</label></td><td><input id='fname'></td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td><label for='lname'>Last Name:</label></td><td><input id='lname'></td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td><label for='empnum'>Employee Number:</label></td><td><input id='empnum'></td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td><label for='staddr'>Street Address:</label></td><td><input id='staddr'></td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td><label for='city'>City:</label></td><td><input id='city'></td>"+
+            "</tr>"+
+            "<tr>"+
+            "<td><label for='state'>State:</label></td><td><input id='state'></td>"+
+            "</tr></table>"+
+            "<button onclick=javascript:formAddEmpValidation();'>Save</button>"
+        );
+    },
+    
+};
+
+function formAddEmpValidation(errorflag) {
+    var fname = $("#fname").val();
+    var lname = $("#lname").val();
+    var empnum = $("#empnum").val();
+    var staddr = $("#staddr").val();
+    var city = $("#city").val();
+    var state = $("#state").val();
+    var errorflag = 0;
+    if(fname == '') {
+        alert('First Name is required.');
+        document.getElementById('fname').focus();
+        errorflag = 1;
+    }
+    if(lname == '') {
+        alert('Last Name is required.');
+        document.getElementById('lname').focus();
+        errorflag = 1;
+    }
+    if(empnum == '') {
+        alert('Employee Number is required.');
+        document.getElementById('empnum').focus();
+        errorflag = 1;
+    }
+    if(staddr == '') {
+        alert('Street Address is required.');
+        document.getElementById('staddr').focus();
+        errorflag = 1;
+    }
+    if(city == '') {
+        alert('City is required.');
+        document.getElementById('city').focus();
+        errorflag = 1;
+    }
+    if(state == '') {
+        alert('State is required.');
+        document.getElementById('state').focus();
+        errorflag = 1;
+    }
+    if(errorflag == 0) {
+        addEmpDlg.saveRecToFile();
+    }
+}
+
 
 
 $(document).ready(function() {
     
     employees.init();
-    
-//    $('#emp_tbl').DataTable( {
-//        data: dataSet,
-//        columns: [
-//            { title: "Name" },
-//            { title: "Position" },
-//            { title: "Office" },
-//            { title: "Extn." },
-//            { title: "Start date" },
-//            { title: "Salary" }
-//        ]
-//    } );
 } );
 
 

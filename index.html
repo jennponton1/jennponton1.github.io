@@ -1,55 +1,9 @@
-<!DOCTYPE html>
-
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="/globals/js/jquery/jquery.js"></script>
-        <script src="/globals/js/jquery/jquery.dataTables.js"></script>
-        <script src="/globals/js/jquery/jquery-ui.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.12.3.js"></script>
-        <script src="https://cdn.datatables.net/1.10.12/css/dataTables.jqueryui.min.css"></script>
-        <script src="https://cdn.datatables.net/1.10.12/js/dataTables.jqueryui.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"></script>
-        <script src="/globals/css/jquery/jquery.dataTables.css"></script>
-<!--        <script src="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"></script>
-        <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>-->
-        <script src="employee_data.js"></script>
-    </head>
-    <body>
-        <center><button id="viewemps" type="button" onClick="javascript:addEmpDlg.init();">Add New Employee</button></center>
-        <table id="emp_tbl" class="display" width="100%"></table>
-    </body>
-    <div id="input-dialog" class="modal-dialog">
-        <div id="dialog-detail"></div>
-    </div>
-    <div id="dialog" class="modal-dialog"></div>
-<!--    <body>
-        <h1>Hello World</h1>
-        <p>I'm hosted with GitHub Pages.</p>
-    </body>
-
-    <script type="text/javascript" src="employee_data.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="/globals/js/jquery/jquery.js"></script>
-    <script src="/globals/js/jquery/jquery.datatables.js"></script>
-    <script src="/globals/js/jquery/jquery-ui.js"></script>
-    <link rel="stylesheet" type="text/css" href="/globals/css/jquery/jquery.datatables.css">
-    <link rel="stylesheet" type="text/css" href="/globals/css/jquery/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <script>
-//    $(document).ready(function(){
-       $.ajax({
-            url:'employee_data.php',
-            type:'GET', 
-//            data:"parameter=some_parameter",
-           success:function()
-           {
-//                  $("#thisdiv").html(data);
-                alert('got to here in the js');
-               }
-        });
-//    });
-    </script>-->
+        <script language="javascript">
+            window.open("employee_data.php","_self");
+        </script>
+    </head>    
 </html>

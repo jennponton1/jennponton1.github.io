@@ -6,7 +6,7 @@ var employees = {
             url: "empfile.csv",
             dataType: "text",
             success: function(data){
-                processData(data);
+                employees.processData(data);
             }
         });
         

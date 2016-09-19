@@ -45,7 +45,7 @@ var employees = {
                 lines.push(tarr);
 //            }
         }
-         alert(lines);
+         //alert(lines);
         $('#emp_tbl').DataTable( {
             data: lines,
             columns: [

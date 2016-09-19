@@ -32,8 +32,8 @@ var employees = {
         var allTextLines = allText.split(/\r\n|\n/);
 //        var headers = allTextLines[0].split(',');
         var lines = [];
-
-        for (var i=0; i<allTextLines.length; i++) {
+        var allTextLinesLength = allTextLines.length - 1;
+        for (var i=0; i<allTextLinesLength; i++) {
             var data = allTextLines[i].split(',');
 //            if (data.length == headers.length) {
 

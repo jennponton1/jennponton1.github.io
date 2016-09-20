@@ -2,14 +2,30 @@
 
 $(document).ready(function() {
     
-    $.ajax({
-        type: "GET",
-        url: "employee_data.php",
-        success: function($csvcontens) {
-            alert($csvcontents);
+//    $.ajax({
+//        type: "GET",
+//        url: "employee_data.php",
+//        success: function($csvcontens) {
+//            alert($csvcontents);
+//        }
+//        
+//    });
+    
+    //function processData(csv) {
+        csv = "empfile.csv";
+        var allTextLines = csv.split(/\r\n|\n/);
+        var lines = [];
+        for (var i=0; i<allTextLines.length; i++) {
+            var data = allTextLines[i].split(';');
+                var tarr = [];
+                for (var j=0; j<data.length; j++) {
+                    tarr.push(data[j]);
+                }
+                lines.push(tarr);
         }
-        
-    });
+      console.log(lines);
+//    }
+    
 } );
 
 

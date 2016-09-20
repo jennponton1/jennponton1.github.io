@@ -1,4 +1,30 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<table>
+<tr>
+    <td>Header 1</td>
+    <td>Header 2</td>
+    <td>Header 3</td>
+    <td>Header 4</td>
+    <td>Header 5</td>
+    <td>Header 6</td>
+</tr>
+<?php
+    $fp = fopen ( "empfile.csv" , "r" );
+    while (( $data = fgetcsv ( $fp , 1000 , "," )) !== FALSE ) {
+        $i = 0;
+        echo "<tr>";
+        foreach($data as $row) {
+           echo "<td>" . $row . "</td>";
+           $i++ ;
+        }
+        echo "/<tr>";
+    }
+    fclose ( $fp );
+    ?>
+</table>
+
+
+
+<!--<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
     <style type="text/css">
@@ -65,7 +91,7 @@
     <div id="dvCSV">
     </div>
 </body>
-</html>
+</html>-->
 
 
 <!--<!DOCTYPE html>

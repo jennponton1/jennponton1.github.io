@@ -5,8 +5,8 @@ $(document).ready(function() {
     $.ajax({
         type: "GET",
         url: "employee_data.php",
-        success: function() {
-//            alert('Yay');
+        success: function($csvcontens) {
+            alert($csvcontents);
         }
         
     });

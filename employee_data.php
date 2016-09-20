@@ -19,26 +19,27 @@ $filename = empfile.csv;
 $header = true;
 $handle = fopen($filename);
 
-echo '<table>';
+//echo '<table>';
 
-if ($header) {
+//if ($header) {
     $csvcontents = fgetcsv($handle);
-    echo '<tr>';
-    foreach ($csvcontents as $headercolumn) {
-        echo "<th>$headercolumn</th>";
-    }
-    echo '</tr>';
-}
+//    echo '<tr>';
+//    foreach ($csvcontents as $headercolumn) {
+//        echo "<th>$headercolumn</th>";
+//    }
+//    echo '</tr>';
+//}
 
-while ($csvcontents = fgetcsv($handle)) {
-    echo '<tr>';
-    foreach ($csvcontents as $column) {
-        echo "<td>$column</td>";
-    }
-    echo '</tr>';
-}
-echo '</table>';
+//while ($csvcontents = fgetcsv($handle)) {
+//    echo '<tr>';
+//    foreach ($csvcontents as $column) {
+//        echo "<td>$column</td>";
+//    }
+//    echo '</tr>';
+//}
+//echo '</table>';
 fclose($handle);
+return $csvcontents;
 
 
 //function jj_readcsv($filename, $header=false) {

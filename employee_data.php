@@ -1,29 +1,42 @@
 <?php
 
-$filename = empfile.csv;
-$header = true;
-$handle = fopen($filename);
-
-echo '<table>';
-
-if ($header) {
-    $csvcontents = fgetcsv($handle);
-    echo '<tr>';
-    foreach ($csvcontents as $headercolumn) {
-        echo "<th>$headercolumn</th>";
+$row = 1;
+if (($handle = fopen("empfile.csv", "r")) !== FALSE) {
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        $num = count($data);
+        echo "<p> $num fields in line $row: <br /></p>\n";
+        $row++;
+        for ($c=0; $c < $num; $c++) {
+            echo $data[$c] . "<br />\n";
+        }
     }
-    echo '</tr>';
+    fclose($handle);
 }
 
-while ($csvcontents = fgetcsv($handle)) {
-    echo '<tr>';
-    foreach ($csvcontents as $column) {
-        echo "<td>$column</td>";
-    }
-    echo '</tr>';
-}
-echo '</table>';
-fclose($handle);
+//$filename = empfile.csv;
+//$header = true;
+//$handle = fopen($filename);
+//
+//echo '<table>';
+//
+//if ($header) {
+//    $csvcontents = fgetcsv($handle);
+//    echo '<tr>';
+//    foreach ($csvcontents as $headercolumn) {
+//        echo "<th>$headercolumn</th>";
+//    }
+//    echo '</tr>';
+//}
+//
+//while ($csvcontents = fgetcsv($handle)) {
+//    echo '<tr>';
+//    foreach ($csvcontents as $column) {
+//        echo "<td>$column</td>";
+//    }
+//    echo '</tr>';
+//}
+//echo '</table>';
+//fclose($handle);
 
 
 //function jj_readcsv($filename, $header=false) {

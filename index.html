@@ -36,19 +36,24 @@
             <?php    
             foreach ($csvcontents as $headercolumn) { ?>
                 <th><?php $headercolumn; ?></th>
-            }
-            echo '</tr>';
-        }
+            <?php } ?>
+            </tr>
+        <?php    
+        } 
 
-        while ($csvcontents = fgetcsv($handle)) {
-            echo '<tr>';
-            foreach ($csvcontents as $column) {
-                echo "<td>$column</td>";
-            }
-            echo '</tr>';
-        }
-        echo '</table>';
-        fclose($handle);
+        while ($csvcontents = fgetcsv($handle)) { ?>
+            <tr>
+            <?php    
+            foreach ($csvcontents as $column) { ?>
+                <td> <?php $column ?> </td>
+            <?php    
+            } ?>
+            </tr>
+        <?php    
+        } ?>
+        </table>
+        <?php
+        fclose($handle); ?>
 
     ?>
 

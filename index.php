@@ -1,6 +1,6 @@
 <?php
 
-//echo 'this sucks';
+echo 'this sucks';
 
 //$row = 1;
 //if (($handle = fopen("empfile.csv", "r")) !== FALSE) {
@@ -15,30 +15,30 @@
 //    fclose($handle);
 //}
 
-$filename = empfile.csv;
-$header = true;
-$handle = fopen($filename);
-
-echo '<table>';
-
-if ($header) {
-    $csvcontents = fgetcsv($handle);
-    echo '<tr>';
-    foreach ($csvcontents as $headercolumn) {
-        echo "<th>$headercolumn</th>";
-    }
-    echo '</tr>';
-}
-
-while ($csvcontents = fgetcsv($handle)) {
-    echo '<tr>';
-    foreach ($csvcontents as $column) {
-        echo "<td>$column</td>";
-    }
-    echo '</tr>';
-}
-echo '</table>';
-fclose($handle);
+//$filename = empfile.csv;
+//$header = true;
+//$handle = fopen($filename);
+//
+//echo '<table>';
+//
+//if ($header) {
+//    $csvcontents = fgetcsv($handle);
+//    echo '<tr>';
+//    foreach ($csvcontents as $headercolumn) {
+//        echo "<th>$headercolumn</th>";
+//    }
+//    echo '</tr>';
+//}
+//
+//while ($csvcontents = fgetcsv($handle)) {
+//    echo '<tr>';
+//    foreach ($csvcontents as $column) {
+//        echo "<td>$column</td>";
+//    }
+//    echo '</tr>';
+//}
+//echo '</table>';
+//fclose($handle);
 
 
 //function jj_readcsv($filename, $header=false) {

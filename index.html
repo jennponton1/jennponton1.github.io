@@ -26,15 +26,16 @@
 
         $filename = empfile.csv;
         $header = true;
-        $handle = fopen($filename);
+        $handle = fopen($filename); ?>
 
-        echo '<table>';
-
+        <table>
+    <?php
         if ($header) {
-            $csvcontents = fgetcsv($handle);
-            echo '<tr>';
-            foreach ($csvcontents as $headercolumn) {
-                echo "<th>$headercolumn</th>";
+            $csvcontents = fgetcsv($handle); ?>              
+            <tr>
+            <?php    
+            foreach ($csvcontents as $headercolumn) { ?>
+                <th><?php $headercolumn; ?></th>
             }
             echo '</tr>';
         }

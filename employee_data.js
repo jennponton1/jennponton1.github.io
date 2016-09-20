@@ -94,6 +94,7 @@ var addEmpDlg = {
 //                addEmpDlg.panel = '';
 //            }
 //        });
+
         
         $("#adddlg").html(
             "<table>"+

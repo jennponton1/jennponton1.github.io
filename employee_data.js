@@ -89,11 +89,11 @@ var addEmpDlg = {
         
 //        var empform = '<form action="employee_add_data.js'
         $("body").append("<div id='adddlg'></div>");
-        this.panel = $("#adddlg").form({
-            close: function() {
-                addEmpDlg.panel = '';
-            }
-        });
+//        this.panel = $("#adddlg").form({
+//            close: function() {
+//                addEmpDlg.panel = '';
+//            }
+//        });
         
         $("#adddlg").html(
             "<table>"+

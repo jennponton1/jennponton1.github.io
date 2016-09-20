@@ -7,54 +7,19 @@
 </html>-->
 
 
-<!--<html>
+<html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.12.3.js"></script>
-        <script src="employee_data.php"></script>
-        <script type="text/javascript" charset="utf-8">
+        <script src="employee_data.js"></script>
+<!--        <script type="text/javascript" charset="utf-8">
 //        <script language="javascript">
             window.open("employee_data.php","_self");
-        </script>
+        </script>-->
     </head>    
-</html>-->
+</html>
 
-<html>
-<body>
-    
-    <?php
 
-        $filename = empfile.csv;
-        $header = true;
-        $handle = fopen($filename); ?>
-
-        <table>
-    <?php
-        if ($header) {
-            $csvcontents = fgetcsv($handle); ?>              
-            <tr>
-            <?php    
-            foreach ($csvcontents as $headercolumn) { ?>
-                <th><?php $headercolumn; ?></th>
-            <?php } ?>
-            </tr>
-        <?php    
-        } 
-
-        while ($csvcontents = fgetcsv($handle)) { ?>
-            <tr>
-            <?php    
-            foreach ($csvcontents as $column) { ?>
-                <td> <?php $column ?> </td>
-            <?php    
-            } ?>
-            </tr>
-        <?php    
-        } ?>
-        </table>
-        <?php
-        fclose($handle); 
-    ?>
 
 
 
@@ -65,6 +30,3 @@
 <!--<h1>Welcome to my home page!</h1>
 <p>Some text.</p>
 <p>Some more text.</p>-->
-
-</body>
-</html>

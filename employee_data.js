@@ -35,7 +35,6 @@ $(document).ready(function() {
 
 function successFunction(data) {
   var allRows = data.split(/\r?\n|\r/);
-  var empform = '<form action="employee_add_data.js'
   var table = '<table>';
   for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
     if (singleRow === 0) {
@@ -86,9 +85,11 @@ var addEmpDlg = {
         }            
         this.state = '';
         //this.gridNode = evt.target.parentNode;
-        //this.gridData = employees.table.fnGetData(this.gridNode);
+        //this.gridData = employees.table.fnGetData(this.gridNode
+        
+//        var empform = '<form action="employee_add_data.js'
         $("body").append("<div id='adddlg'></div>");
-        this.panel = $("adddlg").dialog({
+        this.panel = $("#adddlg").form({
             close: function() {
                 addEmpDlg.panel = '';
             }

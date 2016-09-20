@@ -80,6 +80,14 @@ var addEmpDlg = {
     gridData : '',
     state : '',
     init: function(evt) {
+//        $.ajax({
+//            type: "GET",
+//            url: "employee_add_data.php",
+//            success: function() {
+//                
+//            }
+//        });
+        
         if (this.panel != '') {
             return;
         }            

@@ -21,9 +21,40 @@
 
 <html>
 <body>
+    
+    <?php
+
+        $filename = empfile.csv;
+        $header = true;
+        $handle = fopen($filename);
+
+        echo '<table>';
+
+        if ($header) {
+            $csvcontents = fgetcsv($handle);
+            echo '<tr>';
+            foreach ($csvcontents as $headercolumn) {
+                echo "<th>$headercolumn</th>";
+            }
+            echo '</tr>';
+        }
+
+        while ($csvcontents = fgetcsv($handle)) {
+            echo '<tr>';
+            foreach ($csvcontents as $column) {
+                echo "<td>$column</td>";
+            }
+            echo '</tr>';
+        }
+        echo '</table>';
+        fclose($handle);
+
+    ?>
+
+
 
 <!--<div class="menu">-->
-<?php include 'employee_data.php';?>
+<!--<?php include 'employee_data.php';?>-->
 <!--</div>-->
 
 <!--<h1>Welcome to my home page!</h1>

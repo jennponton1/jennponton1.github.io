@@ -81,7 +81,7 @@ var addEmpDlg = {
         //this.gridNode = evt.target.parentNode;
         //this.gridData = employees.table.fnGetData(this.gridNode);
         $("body").append("<div id='adddlg'></div>");
-        this.panel = $("#adddlg").dialog({
+        this.panel = $("adddlg").dialog({
             close: function() {
                 addEmpDlg.panel = '';
             }

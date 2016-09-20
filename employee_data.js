@@ -6,7 +6,7 @@ $(document).ready(function() {
         type: "GET",
         url: "employee_data.php",
         success: function() {
-            alert('Yay');
+//            alert('Yay');
         }
         
     });

@@ -35,6 +35,7 @@ $(document).ready(function() {
 
 function successFunction(data) {
   var allRows = data.split(/\r?\n|\r/);
+  var empform = '<form action="employee_add_data.js'
   var table = '<table>';
   for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
     if (singleRow === 0) {
@@ -66,6 +67,12 @@ function successFunction(data) {
   table += '</tbody>';
   table += '</table>';
   $('body').append(table);
+}
+
+var addEmpForm = {
+    init: function() {
+        
+    }
 }
 
 var addEmpDlg = {

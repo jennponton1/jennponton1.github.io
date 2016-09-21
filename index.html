@@ -117,8 +117,22 @@
  
 <div id="dialog-form" title="Create new user">
   <p class="validateTips">All form fields are required.</p>
- 
+  
   <form>
+    <fieldset>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" class="text ui-widget-content ui-corner-all">
+ 
+      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+    </fieldset>
+  </form>
+ 
+<!--  <form>
     <fieldset>
       <label for="name">Name</label>
       <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
@@ -127,19 +141,62 @@
       <label for="password">Password</label>
       <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
  
-      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+       Allow form submission with keyboard without duplicating the dialog button 
       <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
     </fieldset>
-  </form>
+  </form>-->
 </div>
  
  
 <div id="users-contain" class="ui-widget">
   <h1>Existing Users:</h1>
-  <table id="users" class="ui-widget ui-widget-content">
+<!--  <table id="users" class="ui-widget ui-widget-content">
     <thead>
-      <tr class="ui-widget-header ">
-        <th>Name</th>
+      <tr class="ui-widget-header">-->
+          
+        <script>
+            $.ajax({
+                url: 'users.csv',
+                dataType: 'text',
+            }).done(successFunction);
+            
+            function successFunction(data) {
+                var allRows = data.split(/\r?\n|\r/);
+                var table = '<table id="users" class="ui-widget ui-widget-content">';
+                for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
+                  if (singleRow === 0) {
+                    table += '<thead class="ui-widget-header>';
+                    table += '<tr>';
+                  } else {
+                    table += '<tr>';
+                  }
+                  var rowCells = allRows[singleRow].split(',');
+                  for (var rowCell = 0; rowCell < rowCells.length; rowCell++) {
+                    if (singleRow === 0) {
+                      table += '<th>';
+                      table += rowCells[rowCell];
+                      table += '</th>';
+                    } else {
+                      table += '<td>';
+                      table += rowCells[rowCell];
+                      table += '</td>';
+                    }
+                  }
+                  if (singleRow === 0) {
+                    table += '</tr>';
+                    table += '</thead>';
+                    table += '<tbody>';
+                  } else {
+                    table += '</tr>';
+                  }
+                } 
+                table += '</tbody>';
+                table += '</table>';
+                $('body').append(table);
+              }
+        </script>
+          
+<!--        <th>Name</th>
         <th>Email</th>
         <th>Password</th>
       </tr>
@@ -151,7 +208,7 @@
         <td>johndoe1</td>
       </tr>
     </tbody>
-  </table>
+  </table>-->
 </div>
 <button id="create-user">Create new user</button>
  

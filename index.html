@@ -80,8 +80,6 @@
       valid = valid && checkLength( state, "zip", 2, 2 ); 
       
       valid = valid && checkRegexp( zip, /^([0-9])+$/, "Zip field only allows 0-9" );
-//      valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
-//      valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
  
       if ( valid ) {
         $( "#employees tbody" ).append( "<tr>" +
@@ -104,7 +102,7 @@
       width: 350,
       modal: true,
       buttons: {
-        "Create an employee": addEmployee,
+        "Add Employee": addEmployee,
         Cancel: function() {
           dialog.dialog( "close" );
         }
@@ -120,7 +118,7 @@
       addEmployee();
     });
  
-    $( "#create-employee" ).button().on( "click", function() {
+    $( "#add-employee" ).button().on( "click", function() {
       dialog.dialog( "open" );
     });
   } );
@@ -128,7 +126,7 @@
 </head>
 <body>
  
-<div id="dialog-form" title="Create new employee">
+<div id="dialog-form" title="Add Employee">
   <p class="validateTips">All form fields are required.</p>
  
   <form>
@@ -147,8 +145,7 @@
       <input type="text" name="state" id="state" class="text ui-widget-content ui-corner-all">
       <label for="zip">Zip</label>
       <input type="text" name="zip" id="zip" class="text ui-widget-content ui-corner-all">
- 
-      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+
       <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
     </fieldset>
   </form>
@@ -191,425 +188,8 @@
     </tbody>
   </table>
 </div>
-<button id="create-employee">Create new employee</button>
+<button id="add-employee">Add Employee</button>
  
  
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-<!--<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Dialog - Modal form</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <style>
-    label, input { display:block; }
-    input.text { margin-bottom:12px; width:95%; padding: .4em; }
-    fieldset { padding:0; border:0; margin-top:25px; }
-    h1 { font-size: 1.2em; margin: .6em 0; }
-    div#users-contain { width: 350px; margin: 20px 0; }
-    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
-    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
-    .ui-dialog .ui-state-error { padding: .3em; }
-    .validateTips { border: 1px solid transparent; padding: 0.3em; }
-  </style>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <div id="users-contain" class="ui-widget">
-    <h1>Existing Users:</h1>
-    <table id="users" class="ui-widget ui-widget-content">
-      <thead>
-        <tr class="ui-widget-header">
-
-          <script>
-              $.ajax({
-                  url: 'users.csv',
-                  dataType: 'text',
-              }).done(successFunction);
-
-              function successFunction(data) {
-                  var allRows = data.split(/\r?\n|\r/);
-                  var table = '<table id="users" class="ui-widget ui-widget-content">';
-                  for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
-                    if (singleRow === 0) {
-                      table += '<thead class="ui-widget-header>';
-                      table += '<tr>';
-                    } else {
-                      table += '<tr>';
-                    }
-                    var rowCells = allRows[singleRow].split(',');
-                    for (var rowCell = 0; rowCell < rowCells.length; rowCell++) {
-                      if (singleRow === 0) {
-                        table += '<th>';
-                        table += rowCells[rowCell];
-                        table += '</th>';
-                      } else {
-                        table += '<td>';
-                        table += rowCells[rowCell];
-                        table += '</td>';
-                      }
-                    }
-                    if (singleRow === 0) {
-                      table += '</tr>';
-                      table += '</thead>';
-                      table += '<tbody>';
-                    } else {
-                      table += '</tr>';
-                    }
-                  } 
-                  table += '</tbody>';
-                  table += '</table>';
-                  $( "#users tbody" ).append(table);
-                }
-          </script>
-
-          <th>Name</th>
-          <th>Email</th>
-          <th>Password</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>John Doe</td>
-          <td>john.doe@example.com</td>
-          <td>johndoe1</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <script>
-  $( function() {
-    var dialog, form,
- 
-      // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
-      emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-      name = $( "#name" ),
-      email = $( "#email" ),
-      password = $( "#password" ),
-      allFields = $( [] ).add( name ).add( email ).add( password ),
-      tips = $( ".validateTips" );
- 
-    function updateTips( t ) {
-      tips
-        .text( t )
-        .addClass( "ui-state-highlight" );
-      setTimeout(function() {
-        tips.removeClass( "ui-state-highlight", 1500 );
-      }, 500 );
-    }
- 
-    function checkLength( o, n, min, max ) {
-      if ( o.val().length > max || o.val().length < min ) {
-        o.addClass( "ui-state-error" );
-        updateTips( "Length of " + n + " must be between " +
-          min + " and " + max + "." );
-        return false;
-      } else {
-        return true;
-      }
-    }
- 
-    function checkRegexp( o, regexp, n ) {
-      if ( !( regexp.test( o.val() ) ) ) {
-        o.addClass( "ui-state-error" );
-        updateTips( n );
-        return false;
-      } else {
-        return true;
-      }
-    }
- 
-    function addUser() {
-      var valid = true;
-      allFields.removeClass( "ui-state-error" );
- 
-      valid = valid && checkLength( name, "username", 3, 16 );
-      valid = valid && checkLength( email, "email", 6, 80 );
-      valid = valid && checkLength( password, "password", 5, 16 );
- 
-      valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
-      valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
-      valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
- 
-      if ( valid ) {
-        $( "#users tbody" ).append( "<tr>" +
-          "<td>" + name.val() + "</td>" +
-          "<td>" + email.val() + "</td>" +
-          "<td>" + password.val() + "</td>" +
-        "</tr>" );
-        dialog.dialog( "close" );
-      }
-      return valid;
-    }
- 
-    dialog = $( "#dialog-form" ).dialog({
-      autoOpen: false,
-      height: 400,
-      width: 350,
-      modal: true,
-      buttons: {
-        "Create an account": addUser,
-        Cancel: function() {
-          dialog.dialog( "close" );
-        }
-      },
-      close: function() {
-        form[ 0 ].reset();
-        allFields.removeClass( "ui-state-error" );
-      }
-    });
- 
-    form = dialog.find( "form" ).on( "submit", function( event ) {
-      event.preventDefault();
-      addUser();
-    });
- 
-    $( "#create-user" ).button().on( "click", function() {
-      dialog.dialog( "open" );
-    });
-  } );
-  </script>
-</head>
-<body>
- 
-<div id="dialog-form" title="Create new user">
-  <p class="validateTips">All form fields are required.</p>
-  
-  <form>
-    <fieldset>
-      <label for="name">Name</label>
-      <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
-      <label for="email">Email</label>
-      <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" class="text ui-widget-content ui-corner-all">
- 
-       Allow form submission with keyboard without duplicating the dialog button 
-      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-    </fieldset>
-  </form>
- 
-  <form>
-    <fieldset>
-      <label for="name">Name</label>
-      <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
-      <label for="email">Email</label>
-      <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
- 
-       Allow form submission with keyboard without duplicating the dialog button 
-      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-    </fieldset>
-  </form>
-</div>
- 
- 
-
-<button id="create-user">Create new user</button>
- 
- 
-</body>
-</html>-->
-
-
-
-
-
-
-
-
-
-<!--<html>
-<table>
-<tr>
-    <td>Header 1</td>
-    <td>Header 2</td>
-    <td>Header 3</td>
-    <td>Header 4</td>
-    <td>Header 5</td>
-    <td>Header 6</td>
-</tr>
-<?php
-    $fp = fopen ( "empfile.csv" , "r" );
-    while (( $data = fgetcsv ( $fp , 1000 , "," )) !== FALSE ) {
-        $i = 0;
-        echo "<tr>";
-        foreach($data as $row) {
-           echo "<td>" . $row . "</td>";
-           $i++ ;
-        }
-        echo "/<tr>";
-    }
-    fclose ( $fp );
-    ?>
-</table>
-</html>-->
-
-
-<!--<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-    <style type="text/css">
-        body
-        {
-            font-family: Arial;
-           font-size: 10pt;
-        }
-        table
-        {
-            border: 1px solid #ccc;
-        }
-        table th
-        {
-            background-color: #F7F7F7;
-            color: #333;
-            font-weight: bold;
-        }
-        table th, table td
-        {
-            padding: 5px;
-            border-color: #ccc;
-        }
-    </style>
-</head>
-<body>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $("#upload").bind("click", function () {
-                var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
-                if (regex.test($("#fileUpload").val().toLowerCase())) {
-                    if (typeof (FileReader) != "undefined") {
-                        var reader = new FileReader();
-                        reader.onload = function (e) {
-                            var table = $("<table />");
-                            var rows = e.target.result.split("\n");
-                            for (var i = 0; i < rows.length; i++) {
-                                var row = $("<tr />");
-                                var cells = rows[i].split(",");
-                                for (var j = 0; j < cells.length; j++) {
-                                    var cell = $("<td />");
-                                    cell.html(cells[j]);
-                                    row.append(cell);
-                                }
-                                table.append(row);
-                            }
-                            $("#dvCSV").html('');
-                            $("#dvCSV").append(table);
-                        }
-                        reader.readAsText($("#fileUpload")[0].files[0]);
-                    } else {
-                        alert("This browser does not support HTML5.");
-                    }
-                } else {
-                    alert("Please upload a valid CSV file.");
-                }
-            });
-        });
-    </script>
-    <input type="file" id="fileUpload" />
-    <input type="button" id="upload" value="Upload" />
-    <hr />
-    <div id="dvCSV">
-    </div>
-</body>
-</html>-->
-
-
-<!--<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <style>
-            table {
-                border-collapse: collapse;
-                border: 2px black solid;
-                font: 12px sans-serif;
-            }
-
-            td {
-                border: 1px black solid;
-                padding: 5px;
-            }
-        </style>
-    </head>
-    <body>
-         <script src="http://d3js.org/d3.v3.min.js"></script> 
-        <script src="d3.min.js?v=3.2.8"></script>
-
-        <script type="text/javascript"charset="utf-8">
-            d3.text("empfile.csv", function(data) {
-                var parsedCSV = d3.csv.parseRows(data);
-
-                var container = d3.select("body")
-                    .append("table")
-
-                    .selectAll("tr")
-                        .data(parsedCSV).enter()
-                        .append("tr")
-
-                    .selectAll("td")
-                        .data(function(d) { return d; }).enter()
-                        .append("td")
-                        .text(function(d) { return d; });
-            });
-        </script>
-    </body>
-</html>-->
-
-
-<!--<html>
-  head should be here, but isn't for demonstration's sake
-  <body>
-    <img style="display: none;" src="employee_data.php">
-    This will run RunFromHTML.php
-  </body>
-</html>-->
-
-
-<!--<html>
-    <head>
-        <script>
-            window.location = 'https://jennponton1.github.io/employee_data.php';
-        </script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-1.12.3.js"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="employee_data.js"></script>
-        <script type="text/javascript" charset="utf-8">
-//        <script language="javascript">
-            window.location("employee_data.php");
-        </script>
-    </head>  
-    <body>
-        <center><button id="addemps" type="button" onClick="javascript:addEmpDlg.init();">Add New Employee</button></center>
-        <br>
-        <br>
-    </body>  
-</html>-->
-
-
-
-
-
-<!--<div class="menu">-->
-<!--<?php include 'employee_data.php';?>-->
-<!--</div>-->
-
-<!--<h1>Welcome to my home page!</h1>
-<p>Some text.</p>
-<p>Some more text.</p>-->
